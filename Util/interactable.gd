@@ -1,11 +1,12 @@
 extends Area3D
+class_name Interactable
 
 var in_range:bool = false
 signal interact
 
 func _input(event: InputEvent) -> void:
 	if in_range:
-		if Input.is_action_just_pressed("interact"):
+		if Input.is_action_just_pressed("interact") and check_line_of_sight():
 			interact.emit()
 
 func check_line_of_sight() -> bool:
@@ -32,6 +33,7 @@ func check_line_of_sight() -> bool:
 func _on_body_entered(body: Node3D) -> void:
 	if body is Player:
 		in_range = true
+		
 
 
 func _on_body_exited(body: Node3D) -> void:

@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dl4chch71jslm" path="res://World/BuildingBlocks/wall.tscn" id="2_h2yge"]
 [ext_resource type="Texture2D" uid="uid://dvlqxp5a3nemc" path="res://assets/Pack/textures/parquet_oak.png" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://c66ipeh0nvq7e" path="res://World/BuildingBlocks/doorway_wall.tscn" id="3_lquwl"]
+[ext_resource type="PackedScene" uid="uid://d18loxxaj15wj" path="res://World/BuildingBlocks/window_wall.tscn" id="5_4c57u"]
 [ext_resource type="PackedScene" uid="uid://cov5ryq4dmcf7" path="res://World/BuildingBlocks/post.tscn" id="5_7mycd"]
 [ext_resource type="Texture2D" uid="uid://dmeorjf8vfwp8" path="res://assets/7_diffuseOriginal.bmp" id="6_7mycd"]
 [ext_resource type="PackedScene" uid="uid://c0f4hd1gj27v4" path="res://Enemies/green_blob.tscn" id="7_272bh"]
@@ -80,8 +81,6 @@ mesh = SubResource("BoxMesh_d0iu3")
 navigation_mesh = SubResource("NavigationMesh_onqs7")
 
 [node name="Walls" type="Node3D" parent="NavigationRegion3D" unique_id=1083669035]
-metadata/_edit_group_ = true
-metadata/_edit_lock_ = true
 
 [node name="Wall" parent="NavigationRegion3D/Walls" unique_id=1369361470 instance=ExtResource("2_h2yge")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
@@ -115,9 +114,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.400002, 0, 5.2)
 
 [node name="Wall17" parent="NavigationRegion3D/Walls" unique_id=244916098 instance=ExtResource("2_h2yge")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 5.2)
-
-[node name="Wall18" parent="NavigationRegion3D/Walls" unique_id=1321256702 instance=ExtResource("2_h2yge")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 5.2)
 
 [node name="Wall19" parent="NavigationRegion3D/Walls" unique_id=11905435 instance=ExtResource("2_h2yge")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 5.2)
@@ -157,9 +153,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.200001, 0, -5.2)
 
 [node name="Wall57" parent="NavigationRegion3D/Walls" unique_id=161219557 instance=ExtResource("2_h2yge")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.200001, 0, -5.2)
-
-[node name="Wall48" parent="NavigationRegion3D/Walls" unique_id=2145506209 instance=ExtResource("2_h2yge")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8000002, 0, -9.199999)
 
 [node name="Wall49" parent="NavigationRegion3D/Walls" unique_id=119043246 instance=ExtResource("2_h2yge")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8000002, 0, -9.199999)
@@ -250,6 +243,12 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.9
 
 [node name="Wall42" parent="NavigationRegion3D/Walls" unique_id=1500964189 instance=ExtResource("2_h2yge")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.9, 0, -8.299999)
+
+[node name="Wall2" parent="NavigationRegion3D/Walls" unique_id=1567113029 instance=ExtResource("2_h2yge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -9.199999)
+
+[node name="WindowWall" parent="NavigationRegion3D/Walls" unique_id=595995456 instance=ExtResource("5_4c57u")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -8, 0, 5.2)
 
 [node name="Floor" type="CSGBox3D" parent="NavigationRegion3D" unique_id=264752427]
 material_override = SubResource("StandardMaterial3D_1bvp3")

@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://benwnts2tp5v"]
+
+[ext_resource type="PackedScene" uid="uid://c8aamrgd48x38" path="res://assets/Pack/glb/window_tall.glb" id="1_rm6t0"]
+
+[node name="broken_window" type="Node3D" unique_id=1520053533]
+
+[node name="window_tall2" parent="." unique_id=646444629 instance=ExtResource("1_rm6t0")]
+
+[node name="window_tall_lower" parent="window_tall2/window_tall" parent_id_path=PackedInt32Array(646444629, 819605965) index="0" unique_id=285935468]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5480689, 0)
+
+[editable path="window_tall2"]

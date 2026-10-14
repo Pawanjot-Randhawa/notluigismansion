@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cg074mkqkgmbj"]
+
+[ext_resource type="Script" uid="uid://qoq2cspyguf8" path="res://fireplace.gd" id="1_orq54"]
+[ext_resource type="PackedScene" uid="uid://bqk725osj7u5y" path="res://assets/Pack/glb/fireplace.glb" id="2_3cbfl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d0iu3"]
+size = Vector3(1.6057129, 1.4023438, 0.5057373)
+
+[node name="fireplace" type="StaticBody3D" unique_id=1138728904]
+script = ExtResource("1_orq54")
+
+[node name="fireplace2" parent="." unique_id=486811157 instance=ExtResource("2_3cbfl")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=956199570]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.70077884, 0.2506714)
+shape = SubResource("BoxShape3D_d0iu3")
+
+[editable path="fireplace2"]

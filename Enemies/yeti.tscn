@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://1qowhc74nhaf"]
+
+[ext_resource type="Script" uid="uid://cwusk0yx8wrao" path="res://Enemies/yeti.gd" id="1_qxm8f"]
+[ext_resource type="PackedScene" uid="uid://dvk0rduffjun3" path="res://assets/Monsters/Blobs/Yeti.gltf" id="1_waijt"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_d0iu3"]
+radius = 0.25
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_d0iu3"]
+height = 1.3359375
+radius = 5.0
+
+[node name="Yeti" type="CharacterBody3D" unique_id=1393895750]
+collision_layer = 4
+collision_mask = 7
+script = ExtResource("1_qxm8f")
+
+[node name="Yeti" parent="." unique_id=1849694085 instance=ExtResource("1_waijt")]
+
+[node name="Skeleton3D" parent="Yeti/CharacterArmature" parent_id_path=PackedInt32Array(1849694085, 1792544863) index="0" unique_id=1640023179]
+bones/1/position = Vector3(-0.009834041, 0.10689135, 1.6548966e-09)
+bones/1/rotation = Quaternion(3.8778713e-19, 3.3527613e-08, 0.22790132, 0.97368425)
+bones/2/rotation = Quaternion(4.440892e-16, -3.67342e-40, 4.5918e-41, 1)
+bones/3/rotation = Quaternion(0, -6.661338e-16, 0, 1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2095747889]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2441695, 0)
+shape = SubResource("SphereShape3D_d0iu3")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1648149706]
+debug_enabled = true
+
+[node name="TriggerZone" type="Area3D" parent="." unique_id=1403849396]
+collision_layer = 7
+collision_mask = 7
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TriggerZone" unique_id=2100579805]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.33203125, 0)
+shape = SubResource("CylinderShape3D_d0iu3")
+
+[connection signal="target_reached" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_target_reached"]
+[connection signal="body_entered" from="TriggerZone" to="." method="_on_trigger_zone_body_entered"]
+[connection signal="body_exited" from="TriggerZone" to="." method="_on_trigger_zone_body_exited"]
+
+[editable path="Yeti"]

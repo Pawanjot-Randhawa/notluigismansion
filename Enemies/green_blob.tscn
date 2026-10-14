@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://c0f4hd1gj27v4"]
+
+[ext_resource type="PackedScene" uid="uid://c02t6xus5v1gd" path="res://assets/Monsters/Blobs/GreenBlob.gltf" id="1_02d3i"]
+[ext_resource type="Script" uid="uid://rxd2ugfn4f1g" path="res://Enemies/green_blob.gd" id="1_7pk8f"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_d0iu3"]
+radius = 0.1754384
+
+[node name="GreenBlob" type="CharacterBody3D" unique_id=487428178]
+collision_layer = 4
+collision_mask = 7
+script = ExtResource("1_7pk8f")
+
+[node name="GreenBlob" parent="." unique_id=141161685 instance=ExtResource("1_02d3i")]
+
+[node name="Skeleton3D" parent="GreenBlob/CharacterArmature" parent_id_path=PackedInt32Array(141161685, 2051586716) index="0" unique_id=454790364]
+bones/1/position = Vector3(0, 0.0966387, 0)
+bones/1/rotation = Quaternion(0, 0, 0, 1)
+bones/2/rotation = Quaternion(0, 0, 0, 1)
+bones/3/rotation = Quaternion(4.5239313e-36, 3.5471498e-10, -0.0026400534, 0.9999966)
+
+[node name="AnimationPlayer" parent="GreenBlob" index="1" unique_id=1750944977]
+playback_default_blend_time = 0.2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1757306554]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.17248425, 0)
+shape = SubResource("SphereShape3D_d0iu3")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=944830409]
+debug_enabled = true
+
+[editable path="GreenBlob"]

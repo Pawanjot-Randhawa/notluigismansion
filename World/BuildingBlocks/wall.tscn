@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dl4chch71jslm"]
+
+[ext_resource type="PackedScene" uid="uid://themtq0xx5ly" path="res://assets/Pack/glb/wall_damask.glb" id="1_aqtke"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d0iu3"]
+size = Vector3(2.0117188, 2.989502, 0.17675781)
+
+[node name="Wall" type="StaticBody3D" unique_id=1369361470]
+collision_layer = 2
+collision_mask = 5
+
+[node name="wall_damask2" parent="." unique_id=1888325622 instance=ExtResource("1_aqtke")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=97207278]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.493042, 0)
+shape = SubResource("BoxShape3D_d0iu3")

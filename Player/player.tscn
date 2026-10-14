@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://bkywd0s1e5hm5"]
+
+[ext_resource type="Script" uid="uid://c6r15pobgug3m" path="res://Player/player.gd" id="1_l8h54"]
+[ext_resource type="PackedScene" uid="uid://dlakc4w8ld0cg" path="res://assets/GLB format/character-male-c.glb" id="2_4ntmi"]
+[ext_resource type="PackedScene" uid="uid://1qm5tcwvdjyb" path="res://assets/Blaster/blaster-h.glb" id="3_btcbx"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_d0iu3"]
+radius = 0.4177246
+height = 0.8354492
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gwnis"]
+animation = &"holding-right"
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_k53q1"]
+filter_enabled = true
+filters = ["character-male-c/Skeleton3D:arm-left", "character-male-c/Skeleton3D:arm-right", "character-male-c/Skeleton3D:head", "character-male-c/Skeleton3D:root", "character-male-c/Skeleton3D:torso"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4ntmi"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_btcbx"]
+animation = &"walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gwnis"]
+xfade_time = 0.2
+advance_mode = 2
+advance_expression = "moving"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fhl08"]
+xfade_time = 0.2
+advance_mode = 2
+advance_expression = "!moving"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_k53q1"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_gwnis"]
+states/idle/node = SubResource("AnimationNodeAnimation_4ntmi")
+states/idle/position = Vector2(423, 110)
+states/walk/node = SubResource("AnimationNodeAnimation_btcbx")
+states/walk/position = Vector2(598, 110)
+transitions = ["idle", "walk", SubResource("AnimationNodeStateMachineTransition_gwnis"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_fhl08"), "Start", "idle", SubResource("AnimationNodeStateMachineTransition_k53q1")]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_d0iu3"]
+graph_offset = Vector2(-579, -146)
+nodes/output/position = Vector2(540, 40)
+nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_gwnis")
+nodes/StateMachine/position = Vector2(-120, -40)
+nodes/Blend2/node = SubResource("AnimationNodeBlend2_k53q1")
+nodes/Blend2/position = Vector2(241, -69)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_gwnis")
+nodes/Animation/position = Vector2(-40, 220)
+node_connections = [&"output", 0, &"Blend2", &"Blend2", 0, &"StateMachine", &"Blend2", 1, &"Animation"]
+
+[node name="Player" type="CharacterBody3D" unique_id=1883387069]
+collision_mask = 6
+script = ExtResource("1_l8h54")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=468576718]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.41381836, 0)
+shape = SubResource("CapsuleShape3D_d0iu3")
+
+[node name="Node3D" type="Node3D" parent="." unique_id=2127666847]
+
+[node name="mesh" parent="." unique_id=528091184 instance=ExtResource("2_4ntmi")]
+unique_name_in_owner = true
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="Skeleton3D" parent="mesh/character-male-c" parent_id_path=PackedInt32Array(528091184, 1426104503) index="0" unique_id=1767435334]
+bones/4/rotation = Quaternion(0, 0, -0.3826835, 0.92387956)
+bones/5/rotation = Quaternion(0, 0.5, 0, 0.8660254)
+
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="mesh/character-male-c/Skeleton3D" index="2" unique_id=1462739654]
+transform = Transform3D(0.7071067, 0.70710677, 0, -0.70710677, 0.7071067, 0, 0, 0, 1, 0.09989677, 0.28775, -0.017250001)
+bone_name = "arm-left"
+bone_idx = 4
+
+[node name="gun" parent="mesh/character-male-c/Skeleton3D/BoneAttachment3D" unique_id=1871426753 instance=ExtResource("3_btcbx")]
+unique_name_in_owner = true
+transform = Transform3D(-0.7071067, -0.70710677, 6.181724e-08, -0.70710677, 0.7071067, 6.1817246e-08, -8.742277e-08, 0, -1, -0.22976358, -0.12928632, 0.37624854)
+
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=882075530]
+root_node = NodePath("%mesh")
+tree_root = SubResource("AnimationNodeBlendTree_d0iu3")
+advance_expression_base_node = NodePath("..")
+anim_player = NodePath("../mesh/AnimationPlayer")
+parameters/Blend2/blend_amount = 1.0
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=813833311]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 6, -0.01758957)
+fov = 50.0
+
+[editable path="mesh"]

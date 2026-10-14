@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://c66ipeh0nvq7e"]
+
+[ext_resource type="Script" uid="uid://br4fyfeaj0qaq" path="res://World/BuildingBlocks/doorway_wall.gd" id="1_anc3d"]
+[ext_resource type="PackedScene" uid="uid://b0eypcnujbjo4" path="res://assets/Pack/glb/wall_doorway_damask.glb" id="1_u0lh4"]
+[ext_resource type="PackedScene" uid="uid://lm62inqne543" path="res://assets/Pack/glb/door_panel.glb" id="2_anc3d"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d0iu3"]
+size = Vector3(1.9943848, 0.77075195, 0.18945313)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_onqs7"]
+size = Vector3(0.5024414, 2.9906616, 0.20678711)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i7we0"]
+size = Vector3(0.51220703, 3.005127, 0.19702148)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oahh7"]
+size = Vector3(1, 2.2181091, 0.18725586)
+
+[sub_resource type="BoxMesh" id="BoxMesh_d0iu3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vtikb"]
+size = Vector3(2.006836, 2.4665222, 3.4179688)
+
+[node name="DoorwayWall" type="StaticBody3D" unique_id=710334640]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_anc3d")
+
+[node name="wall_doorway_damask2" parent="." unique_id=1500916802 instance=ExtResource("1_u0lh4")]
+
+[node name="door_panel2" parent="." unique_id=1200991893 instance=ExtResource("2_anc3d")]
+
+[node name="Upper" type="CollisionShape3D" parent="." unique_id=1912155088]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6004639, 0)
+shape = SubResource("BoxShape3D_d0iu3")
+
+[node name="Side1" type="CollisionShape3D" parent="." unique_id=1591600825]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75561523, 1.4996643, 0)
+shape = SubResource("BoxShape3D_onqs7")
+
+[node name="Side2" type="CollisionShape3D" parent="." unique_id=1611356233]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74194336, 1.4971924, 0)
+shape = SubResource("BoxShape3D_i7we0")
+
+[node name="Door" type="CollisionShape3D" parent="." unique_id=2052872959]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1036224, 0)
+shape = SubResource("BoxShape3D_oahh7")
+disabled = true
+
+[node name="DirectionMarker" type="MeshInstance3D" parent="." unique_id=5052091]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 1)
+visible = false
+mesh = SubResource("BoxMesh_d0iu3")
+
+[node name="OpenZone" type="Area3D" parent="." unique_id=1115624448]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="OpenZone" unique_id=330523944]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.252243, 0)
+shape = SubResource("BoxShape3D_vtikb")
+
+[connection signal="body_entered" from="OpenZone" to="." method="_on_open_zone_body_entered"]
+[connection signal="body_exited" from="OpenZone" to="." method="_on_open_zone_body_exited"]
+
+[editable path="door_panel2"]

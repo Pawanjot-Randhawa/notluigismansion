@@ -18,10 +18,10 @@ script = ExtResource("1_qxm8f")
 [node name="Yeti" parent="." unique_id=1849694085 instance=ExtResource("1_waijt")]
 
 [node name="Skeleton3D" parent="Yeti/CharacterArmature" parent_id_path=PackedInt32Array(1849694085, 1792544863) index="0" unique_id=1640023179]
-bones/1/position = Vector3(-0.009834041, 0.10689135, 1.6548966e-09)
-bones/1/rotation = Quaternion(3.8778713e-19, 3.3527613e-08, 0.22790132, 0.97368425)
-bones/2/rotation = Quaternion(4.440892e-16, -3.67342e-40, 4.5918e-41, 1)
-bones/3/rotation = Quaternion(0, -6.661338e-16, 0, 1)
+bones/1/position = Vector3(0, 0.0966387, 0)
+bones/1/rotation = Quaternion(0, 0, 0, 1)
+bones/2/rotation = Quaternion(0, 0, 0, 1)
+bones/3/rotation = Quaternion(4.5238165e-36, 3.5471487e-10, -0.0026400527, 0.9999966)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2095747889]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2441695, 0)

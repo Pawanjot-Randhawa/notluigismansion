@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cufp6fh8f7yao"]
 
 [ext_resource type="PackedScene" uid="uid://bkywd0s1e5hm5" path="res://Player/player.tscn" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://nbjr6s87grx" path="res://main.gd" id="1_vivmo"]
 [ext_resource type="PackedScene" uid="uid://dl4chch71jslm" path="res://World/BuildingBlocks/wall.tscn" id="2_h2yge"]
 [ext_resource type="Texture2D" uid="uid://dvlqxp5a3nemc" path="res://assets/Pack/textures/parquet_oak.png" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://c66ipeh0nvq7e" path="res://World/BuildingBlocks/doorway_wall.tscn" id="3_lquwl"]
@@ -13,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://benwnts2tp5v" path="res://World/Repairs/broken_window.tscn" id="11_efxa6"]
 [ext_resource type="PackedScene" uid="uid://cg074mkqkgmbj" path="res://World/Repairs/fireplace.tscn" id="12_dg77c"]
 [ext_resource type="PackedScene" uid="uid://wt8scvk53sxm" path="res://World/Repairs/candle_stand.tscn" id="13_ycdy4"]
+[ext_resource type="PackedScene" uid="uid://cmkrsvrp8y6df" path="res://Enemies/wizard.tscn" id="14_w48qg"]
 
 [sub_resource type="Environment" id="Environment_grnse"]
 background_mode = 1
@@ -36,6 +38,7 @@ albedo_texture = ExtResource("3_h2yge")
 uv1_triplanar = true
 
 [node name="main" type="Node" unique_id=1271598252]
+script = ExtResource("1_vivmo")
 
 [node name="Doors" type="Node3D" parent="." unique_id=1122945989]
 metadata/_edit_group_ = true
@@ -73,7 +76,7 @@ transform = Transform3D(-0.8660253, -0.43301275, 0.25000003, 0.25937253, 0.03840
 shadow_enabled = true
 
 [node name="Player" parent="." unique_id=1883387069 instance=ExtResource("1_ig7tw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.50390637, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.50390625, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=697700764]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.682213, 3.25, 3.1)
@@ -316,9 +319,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.1, 0, 5.2)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0.5029541, -8)
 player = NodePath("../Player")
 
-[node name="Yeti" parent="." unique_id=1393895750 node_paths=PackedStringArray("player") instance=ExtResource("8_5vw27")]
+[node name="Yeti" parent="." unique_id=1393895750 instance=ExtResource("8_5vw27")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.325815, 0.8359375, 0)
-player = NodePath("../Player")
 
 [node name="Repairs" type="Node3D" parent="." unique_id=2092439806]
 
@@ -333,3 +335,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12330681, 0.50039315, -9.0
 
 [node name="CandleStand" parent="Repairs" unique_id=1925640068 instance=ExtResource("13_ycdy4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.697405, 0.5053711, 4.724191)
+
+[node name="Wizard" parent="." unique_id=748103471 instance=ExtResource("14_w48qg")]
+transform = Transform3D(0.75077575, 0, -0.66055715, 0, 1, 0, 0.66055715, 0, 0.75077575, -5.8115973, 0.5048828, 1.7352663)
+
+[node name="Spawn" type="Marker3D" parent="." unique_id=237448105]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.50390625, 0)
+gizmo_extents = 4.0

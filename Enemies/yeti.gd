@@ -5,9 +5,9 @@ const SPEED = 100
 
 @onready var animation_player: AnimationPlayer = $Yeti/AnimationPlayer
 @onready var navigation_agent_3d: NavigationAgent3D = $NavigationAgent3D
+@onready var frost: CPUParticles3D = $Frost
 
 
-@export var player:Player
 
 var idle:bool = true
 var chase: bool = false
@@ -17,8 +17,8 @@ func _physics_process(delta: float) -> void:
 	if hit:
 		return
 	if chase:
-		navigation_agent_3d.target_position = player.position
-		look_at(player.position, Vector3.UP, true)
+		navigation_agent_3d.target_position = Game.player.position
+		look_at(Game.player.position, Vector3.UP, true)
 		velocity = direction_to_player() * delta
 		if animation_player.current_animation != "Walk":
 			animation_player.play("Walk")
@@ -43,7 +43,7 @@ func check_line_of_sight() -> bool:
 	
 	# Create a direct ray query from the enemy's eyes to the player's position
 	# Adjust global_position.y slightly if you want it at "eye level"
-	var query = PhysicsRayQueryParameters3D.create(global_position, player.global_position)
+	var query = PhysicsRayQueryParameters3D.create(global_position, Game.player.global_position)
 	
 	# Set your collision mask (e.g., Layer 1 and Layer 2)
 	query.collision_mask = 3 
@@ -54,7 +54,7 @@ func check_line_of_sight() -> bool:
 	var result = space_state.intersect_ray(query)
 
 	if result:
-		if result.collider == player:
+		if result.collider == Game.player:
 			return true
 			
 	return false
@@ -80,4 +80,7 @@ func death():
 	idle = false
 	animation_player.play("Dance")
 	await animation_player.animation_finished
+	%Yeti.visible = false
+	frost.emitting = true
+	await frost.finished
 	queue_free()

@@ -1,12 +1,31 @@
 [gd_scene format=3 uid="uid://benwnts2tp5v"]
 
+[ext_resource type="Script" uid="uid://bbf3bw7hjtgrt" path="res://World/Repairs/broken_window.gd" id="1_053f2"]
 [ext_resource type="PackedScene" uid="uid://c8aamrgd48x38" path="res://assets/Pack/glb/window_tall.glb" id="1_rm6t0"]
+[ext_resource type="PackedScene" uid="uid://dxil8w2j38jgc" path="res://Util/interactable.tscn" id="3_c6qkh"]
 
-[node name="broken_window" type="Node3D" unique_id=1520053533]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_d0iu3"]
+height = 2.5
+radius = 2.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d0iu3"]
+size = Vector3(1.1025391, 1.8730469, 0.19335938)
+
+[node name="broken_window" type="StaticBody3D" unique_id=427125948]
+script = ExtResource("1_053f2")
 
 [node name="window_tall2" parent="." unique_id=646444629 instance=ExtResource("1_rm6t0")]
 
-[node name="window_tall_lower" parent="window_tall2/window_tall" parent_id_path=PackedInt32Array(646444629, 819605965) index="0" unique_id=285935468]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5480689, 0)
+[node name="Interactable" parent="." unique_id=451483875 instance=ExtResource("3_c6qkh")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactable" unique_id=12244671]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
+shape = SubResource("CylinderShape3D_d0iu3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=901432726]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6504068, 0)
+shape = SubResource("BoxShape3D_d0iu3")
+
+[connection signal="interact" from="Interactable" to="." method="_on_interactable_interact"]
 
 [editable path="window_tall2"]

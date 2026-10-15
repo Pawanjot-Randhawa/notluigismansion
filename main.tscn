@@ -10,6 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://c0f4hd1gj27v4" path="res://Enemies/green_blob.tscn" id="7_272bh"]
 [ext_resource type="PackedScene" uid="uid://1qowhc74nhaf" path="res://Enemies/yeti.tscn" id="8_5vw27"]
 [ext_resource type="PackedScene" uid="uid://l3vvso2ybssc" path="res://World/Repairs/broken_armour.tscn" id="9_kek77"]
+[ext_resource type="PackedScene" uid="uid://benwnts2tp5v" path="res://World/Repairs/broken_window.tscn" id="11_efxa6"]
+[ext_resource type="PackedScene" uid="uid://cg074mkqkgmbj" path="res://World/Repairs/fireplace.tscn" id="12_dg77c"]
+[ext_resource type="PackedScene" uid="uid://wt8scvk53sxm" path="res://World/Repairs/candle_stand.tscn" id="13_ycdy4"]
 
 [sub_resource type="Environment" id="Environment_grnse"]
 background_mode = 1
@@ -321,3 +324,12 @@ player = NodePath("../Player")
 
 [node name="BrokenArmour" parent="Repairs" unique_id=1046556376 instance=ExtResource("9_kek77")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.500001, 0.49987793, -4.85)
+
+[node name="broken_window" parent="Repairs" unique_id=1520053533 instance=ExtResource("11_efxa6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.9959555, 0.0035054684, 5.2077146)
+
+[node name="fireplace" parent="Repairs" unique_id=1138728904 instance=ExtResource("12_dg77c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12330681, 0.50039315, -9.09216)
+
+[node name="CandleStand" parent="Repairs" unique_id=1925640068 instance=ExtResource("13_ycdy4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.697405, 0.5053711, 4.724191)

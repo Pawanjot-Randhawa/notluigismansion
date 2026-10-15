@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://wt8scvk53sxm"]
+
+[ext_resource type="Script" uid="uid://triq0d7kvnu4" path="res://World/Repairs/candle_stand.gd" id="1_1ymca"]
+[ext_resource type="PackedScene" uid="uid://cm7jc4fxykthf" path="res://assets/Pack/brokenAssets/broken-candle.glb" id="1_sa5ih"]
+[ext_resource type="PackedScene" uid="uid://fpc2k865h8gg" path="res://assets/Pack/glb/candelabrum.glb" id="3_7fe7m"]
+[ext_resource type="PackedScene" uid="uid://dxil8w2j38jgc" path="res://Util/interactable.tscn" id="4_rr3oe"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_d0iu3"]
+height = 1.4963379
+radius = 0.18701172
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_onqs7"]
+height = 1.5
+radius = 3.0
+
+[node name="CandleStand" type="StaticBody3D" unique_id=1925640068]
+script = ExtResource("1_1ymca")
+
+[node name="broken-candle" parent="." unique_id=1059005168 instance=ExtResource("1_sa5ih")]
+
+[node name="candle" parent="." unique_id=497240779 instance=ExtResource("3_7fe7m")]
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=949580110]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.74279785, 0)
+shape = SubResource("CylinderShape3D_d0iu3")
+
+[node name="Interactable" parent="." unique_id=451483875 instance=ExtResource("4_rr3oe")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactable" unique_id=1945085482]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+shape = SubResource("CylinderShape3D_onqs7")
+
+[connection signal="interact" from="Interactable" to="." method="_on_interactable_interact"]

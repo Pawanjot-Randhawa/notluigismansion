@@ -1,12 +1,8 @@
 extends StaticBody3D
 
 @onready var broken_candle: Node3D = $"broken-candle"
-@onready var candle: Node3D = $candle
-
 @onready var qt: ColorRect = $UI/QT
 @onready var candles = [%C1, %C2, %C3, %C4, %C5]
-
-var is_lit:bool = false
 
 var target_start: float = 0.0
 var target_length:float = 0.12
@@ -20,7 +16,6 @@ var count:int = 0
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("interact") and running:
-		print("run")
 		qte_result()
 
 func _process(delta: float) -> void:
@@ -30,14 +25,6 @@ func _process(delta: float) -> void:
 	qt.material.set_shader_parameter("needle_position", current_needle_progress)
 	if current_needle_progress >= 1.0:
 		qte_result()
-
-func toggle_light(lit:bool):
-	if lit:
-		candle.visible = true
-		broken_candle.visible = false
-	else:
-		candle.visible = false
-		broken_candle.visible = true
 
 func qt_animation():
 	if count > 4:
@@ -61,7 +48,6 @@ func qte_result():
 	running = false
 	var target_end = target_start + target_length
 	if current_needle_progress >= target_start and current_needle_progress <= target_end:
-		print("pass")
 		if count < candles.size():
 			candles[count].visible = true
 		count += 1
@@ -69,7 +55,6 @@ func qte_result():
 		await get_tree().create_timer(1.0).timeout
 		qt_animation()
 	else:
-		print("fail")
 		await get_tree().create_timer(.5).timeout
 		qt_animation()
 
@@ -88,5 +73,3 @@ func _on_interactable_interact() -> void:
 	
 	%Interactable.monitoring = false
 	animation_order()
-	#is_lit = !is_lit
-	#toggle_light(is_lit)

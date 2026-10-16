@@ -1,9 +1,5 @@
 extends StaticBody3D
 
-var in_range:bool = false
-var is_broken:bool = true
-
-@onready var broken_armour: Node3D = $"broken-armour"
 @onready var good_armour: Node3D = $good_armour
 @onready var armour_pieces: Node3D = $ArmourPieces
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -13,21 +9,11 @@ var is_broken:bool = true
 var valid:bool = false
 var count:int = 0
 
-func _ready() -> void:
-	pass
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("interact"):
 		if valid:
 			success()
-
-func destroy(broken:bool):
-	if broken:
-		broken_armour.visible = true
-		good_armour.visible = false
-	else:
-		broken_armour.visible = false
-		good_armour.visible = true
 
 func toggle_valid():
 	valid = !valid
@@ -57,16 +43,12 @@ func success():
 	count += 1
 	animation_order()
 
-
 func fail():
 	animation_player.stop()
 	animation_order()
-
 
 func _on_interactable_interact() -> void:
 	%Camera3D.make_current()
 	Game.player.swap_cam_to_player(false)
 	animation_order()
 	%Interactable.monitoring = false
-	#is_broken = !is_broken
-	#destroy(is_broken)

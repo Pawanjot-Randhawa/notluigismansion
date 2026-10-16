@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://l3vvso2ybssc"]
 
 [ext_resource type="Script" uid="uid://csnfg5a44u15q" path="res://World/Repairs/broken_armour.gd" id="1_g46b5"]
-[ext_resource type="PackedScene" uid="uid://045yp2y1hvxq" path="res://assets/Pack/brokenAssets/broken-armour.glb" id="1_o1sm0"]
 [ext_resource type="PackedScene" uid="uid://blu72j6tdxsq5" path="res://assets/Pack/glb/suit_of_armour.glb" id="2_g46b5"]
 [ext_resource type="PackedScene" uid="uid://dxil8w2j38jgc" path="res://Util/interactable.tscn" id="4_mmw06"]
 [ext_resource type="PackedScene" uid="uid://b7rj5ephbjpsj" path="res://assets/Pack/brokenAssets/body.glb" id="5_dv2o8"]
@@ -481,9 +480,6 @@ height = 1.9501221
 [node name="BrokenArmour" type="StaticBody3D" unique_id=1046556376]
 collision_layer = 2
 script = ExtResource("1_g46b5")
-
-[node name="broken-armour" parent="." unique_id=510841226 instance=ExtResource("1_o1sm0")]
-visible = false
 
 [node name="good_armour" parent="." unique_id=618032464 instance=ExtResource("2_g46b5")]
 visible = false

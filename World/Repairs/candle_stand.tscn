@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://triq0d7kvnu4" path="res://World/Repairs/candle_stand.gd" id="1_1ymca"]
 [ext_resource type="PackedScene" uid="uid://cm7jc4fxykthf" path="res://assets/Pack/brokenAssets/broken-candle.glb" id="1_sa5ih"]
-[ext_resource type="PackedScene" uid="uid://fpc2k865h8gg" path="res://assets/Pack/glb/candelabrum.glb" id="3_7fe7m"]
 [ext_resource type="PackedScene" uid="uid://dxil8w2j38jgc" path="res://Util/interactable.tscn" id="4_rr3oe"]
 [ext_resource type="Shader" uid="uid://cg7h0up8cstfx" path="res://Shaders/radial_quicktime.gdshader" id="5_7fe7m"]
 [ext_resource type="PackedScene" uid="uid://74ahm28qqfbr" path="res://assets/Pack/brokenAssets/candle-small.glb" id="6_5qgnu"]
@@ -40,9 +39,6 @@ colors = PackedColorArray(2.4065375e-07, 0.40219265, 0.5875205, 1, 0.85880345, 0
 script = ExtResource("1_1ymca")
 
 [node name="broken-candle" parent="." unique_id=1059005168 instance=ExtResource("1_sa5ih")]
-
-[node name="candle" parent="." unique_id=497240779 instance=ExtResource("3_7fe7m")]
-visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=949580110]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.74279785, 0)

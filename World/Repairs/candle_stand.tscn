@@ -4,6 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://cm7jc4fxykthf" path="res://assets/Pack/brokenAssets/broken-candle.glb" id="1_sa5ih"]
 [ext_resource type="PackedScene" uid="uid://fpc2k865h8gg" path="res://assets/Pack/glb/candelabrum.glb" id="3_7fe7m"]
 [ext_resource type="PackedScene" uid="uid://dxil8w2j38jgc" path="res://Util/interactable.tscn" id="4_rr3oe"]
+[ext_resource type="Shader" uid="uid://cg7h0up8cstfx" path="res://Shaders/radial_quicktime.gdshader" id="5_7fe7m"]
+[ext_resource type="PackedScene" uid="uid://74ahm28qqfbr" path="res://assets/Pack/brokenAssets/candle-small.glb" id="6_5qgnu"]
+[ext_resource type="PackedScene" uid="uid://t4piwlhbr8yj" path="res://assets/Pack/brokenAssets/candle-big.glb" id="7_4ldjl"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_d0iu3"]
 height = 1.4963379
@@ -12,6 +15,26 @@ radius = 0.18701172
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_onqs7"]
 height = 1.5
 radius = 3.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d0iu3"]
+shader = ExtResource("5_7fe7m")
+shader_parameter/primary_color = Color(0.2873137, 0.8075239, 0, 1)
+shader_parameter/outline_color = Color(0, 0, 0, 1)
+shader_parameter/unfilled_color = Color(0.443, 0.443, 0.443, 1)
+shader_parameter/needle_color = Color(0.78593963, 0.0024409993, 0.98559433, 1)
+shader_parameter/arc_start = 0.2
+shader_parameter/arc_length = 0.15
+shader_parameter/needle_position = 0.0
+shader_parameter/smooth_ = 0.005
+shader_parameter/width_in = 0.68
+shader_parameter/width_out = 0.95
+shader_parameter/border_width = 0.03
+
+[sub_resource type="QuadMesh" id="QuadMesh_qvykn"]
+size = Vector2(0.1, 0.1)
+
+[sub_resource type="Gradient" id="Gradient_pu6vl"]
+colors = PackedColorArray(2.4065375e-07, 0.40219265, 0.5875205, 1, 0.85880345, 0, 0.32934165, 1)
 
 [node name="CandleStand" type="StaticBody3D" unique_id=1925640068]
 script = ExtResource("1_1ymca")
@@ -26,9 +49,84 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.74279785, 0)
 shape = SubResource("CylinderShape3D_d0iu3")
 
 [node name="Interactable" parent="." unique_id=451483875 instance=ExtResource("4_rr3oe")]
+unique_name_in_owner = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Interactable" unique_id=1945085482]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 shape = SubResource("CylinderShape3D_onqs7")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=260631156]
+unique_name_in_owner = true
+transform = Transform3D(0.8910001, 0.15527834, -0.42662334, 0, 0.9396925, 0.34202042, 0.45400316, -0.30474022, 0.8372661, -0.32242, 1.7154887, 0.4699397)
+fov = 50.0
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1183478786]
+unique_name_in_owner = true
+visible = false
+
+[node name="QT" type="ColorRect" parent="UI" unique_id=1852084689]
+material = SubResource("ShaderMaterial_d0iu3")
+offset_left = 168.0
+offset_top = 399.0
+offset_right = 339.0
+offset_bottom = 570.0
+
+[node name="Key" type="Label" parent="UI/QT" unique_id=2013238005]
+layout_mode = 0
+offset_left = 68.0
+offset_top = 40.0
+offset_right = 108.0
+offset_bottom = 123.0
+theme_override_font_sizes/font_size = 60
+text = "E"
+
+[node name="Candles" type="Node3D" parent="." unique_id=2135513672]
+
+[node name="C1" parent="Candles" unique_id=2106979437 instance=ExtResource("6_5qgnu")]
+unique_name_in_owner = true
+visible = false
+
+[node name="C2" parent="Candles" unique_id=878257641 instance=ExtResource("6_5qgnu")]
+unique_name_in_owner = true
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
+visible = false
+
+[node name="C3" parent="Candles" unique_id=1292675926 instance=ExtResource("6_5qgnu")]
+unique_name_in_owner = true
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
+visible = false
+
+[node name="C4" parent="Candles" unique_id=2098975468 instance=ExtResource("6_5qgnu")]
+unique_name_in_owner = true
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 0, 0, 0)
+visible = false
+
+[node name="C5" parent="Candles" unique_id=487862592 instance=ExtResource("7_4ldjl")]
+unique_name_in_owner = true
+visible = false
+
+[node name="Pass" type="CPUParticles3D" parent="." unique_id=2057330835]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4066725, 0)
+emitting = false
+amount = 50
+one_shot = true
+explosiveness = 1.0
+use_fixed_seed = true
+seed = 3290689502
+mesh = SubResource("QuadMesh_qvykn")
+emission_shape = 6
+emission_ring_axis = Vector3(0, 1, 0)
+emission_ring_height = 0.0
+emission_ring_radius = 0.0
+emission_ring_inner_radius = 0.0
+emission_ring_cone_angle = 90.0
+particle_flag_rotate_y = true
+direction = Vector3(0.5, 4, 0.5)
+spread = 180.0
+gravity = Vector3(0, -2, 0)
+initial_velocity_min = 3.0
+initial_velocity_max = 4.0
+color_initial_ramp = SubResource("Gradient_pu6vl")
 
 [connection signal="interact" from="Interactable" to="." method="_on_interactable_interact"]

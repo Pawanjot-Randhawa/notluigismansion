@@ -10,11 +10,11 @@ radius = 0.25
 height = 1.3359375
 radius = 5.0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_onqs7"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qxm8f"]
 albedo_color = Color(0.7019608, 0.8156863, 0.87058824, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_d0iu3"]
-material = SubResource("StandardMaterial3D_onqs7")
+material = SubResource("StandardMaterial3D_qxm8f")
 radius = 0.1
 height = 0.2
 

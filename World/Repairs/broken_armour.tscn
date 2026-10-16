@@ -4,6 +4,12 @@
 [ext_resource type="PackedScene" uid="uid://045yp2y1hvxq" path="res://assets/Pack/brokenAssets/broken-armour.glb" id="1_o1sm0"]
 [ext_resource type="PackedScene" uid="uid://blu72j6tdxsq5" path="res://assets/Pack/glb/suit_of_armour.glb" id="2_g46b5"]
 [ext_resource type="PackedScene" uid="uid://dxil8w2j38jgc" path="res://Util/interactable.tscn" id="4_mmw06"]
+[ext_resource type="PackedScene" uid="uid://b7rj5ephbjpsj" path="res://assets/Pack/brokenAssets/body.glb" id="5_dv2o8"]
+[ext_resource type="PackedScene" uid="uid://blaf2dr1onut" path="res://assets/Pack/brokenAssets/base.glb" id="6_3cm1o"]
+[ext_resource type="PackedScene" uid="uid://d2v4245kvpi1m" path="res://assets/Pack/brokenAssets/boot-l.glb" id="7_v0gnq"]
+[ext_resource type="PackedScene" uid="uid://don360lc8stum" path="res://assets/Pack/brokenAssets/boot-r.glb" id="8_agmxx"]
+[ext_resource type="PackedScene" uid="uid://bv0g68rwonhrl" path="res://assets/Pack/brokenAssets/helmet.glb" id="9_d45ym"]
+[ext_resource type="PackedScene" uid="uid://bqp753lo771c4" path="res://assets/Pack/brokenAssets/spear.glb" id="10_y8nr5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_d0iu3"]
 size = Vector3(1.1630859, 0.95880127, 0.7651367)
@@ -12,11 +18,472 @@ size = Vector3(1.1630859, 0.95880127, 0.7651367)
 height = 1.0
 radius = 2.0
 
+[sub_resource type="Animation" id="Animation_rs8eg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ArmourPieces/boot-l:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.37435898, 0, 0.44120955)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ArmourPieces/boot-r:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.14636302, 0, 0.42374554)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ArmourPieces/boot-r:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.0065925e-15, -3.0658095, -1.5707964)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ArmourPieces/boot-l:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.8399011, -1.5707964)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ArmourPieces/body:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.12069673, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ArmourPieces/body:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.052222222, 0, -0.036094546)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ArmourPieces/helmet:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -0.0016054667)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("ArmourPieces/helmet:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-2.2158065, 0.18236053, 0.028902493)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("ArmourPieces/spear:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("ArmourPieces/spear:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-5.9604645e-08, 0, 0)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("ArmourPieces:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("good_armour:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_dv2o8"]
+resource_name = "body"
+length = 2.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ArmourPieces/body:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.1614743, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ArmourPieces/body:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-1, 0.595, -0.468), Vector3(1, 0.595, -0.468)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.97, 1.03),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"toggle_valid"
+}, {
+"args": [],
+"method": &"toggle_valid"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_0n1a3"]
+resource_name = "bootL"
+length = 2.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ArmourPieces/boot-l:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-1, 0, -0.006), Vector3(1, 0, -0.006)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ArmourPieces/boot-l:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.77, 0.84),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"toggle_valid"
+}, {
+"args": [],
+"method": &"toggle_valid"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_vxbk2"]
+resource_name = "bootR"
+length = 2.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ArmourPieces/boot-r:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-1, 0, -0.006), Vector3(1, 0, -0.006)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ArmourPieces/boot-r:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.17, 1.24),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"toggle_valid"
+}, {
+"args": [],
+"method": &"toggle_valid"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_4rye6"]
+resource_name = "helm"
+length = 2.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ArmourPieces/helmet:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -0.19130231)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ArmourPieces/helmet:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-3.5, 2.204, 0.03), Vector3(-1.5, 2.204, 0.03)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.92, 0.95),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"toggle_valid"
+}, {
+"args": [],
+"method": &"toggle_valid"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_v0gnq"]
+resource_name = "pass"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ArmourPieces:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6333333),
+"transitions": PackedFloat32Array(1, 0.14358751),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("good_armour:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pass")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.56666666),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [true],
+"method": &"restart"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_3cm1o"]
+resource_name = "spear"
+length = 2.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ArmourPieces/spear:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 1.5707964)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ArmourPieces/spear:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-1, 1.422, 0.321), Vector3(1, 1.422, 0.321)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.06, 1.13),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"toggle_valid"
+}, {
+"args": [],
+"method": &"toggle_valid"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oln06"]
+_data = {
+&"RESET": SubResource("Animation_rs8eg"),
+&"body": SubResource("Animation_dv2o8"),
+&"bootL": SubResource("Animation_0n1a3"),
+&"bootR": SubResource("Animation_vxbk2"),
+&"helm": SubResource("Animation_4rye6"),
+&"pass": SubResource("Animation_v0gnq"),
+&"spear": SubResource("Animation_3cm1o")
+}
+
+[sub_resource type="QuadMesh" id="QuadMesh_qvykn"]
+size = Vector2(0.1, 0.1)
+
+[sub_resource type="Gradient" id="Gradient_pu6vl"]
+colors = PackedColorArray(2.4065375e-07, 0.40219265, 0.5875205, 1, 0.85880345, 0, 0.32934165, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_onqs7"]
+transparency = 1
+albedo_color = Color(0.44313726, 0.6862745, 0.33333334, 0.4509804)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_i7we0"]
+top_radius = 0.06640625
+bottom_radius = 0.06640625
+height = 0.4822754
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_dv2o8"]
+top_radius = 0.16845703
+bottom_radius = 0.16845703
+height = 0.910083
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_3cm1o"]
+top_radius = 0.12548828
+bottom_radius = 0.12548828
+height = 0.219281
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_v0gnq"]
+top_radius = 0.05029297
+bottom_radius = 0.05029297
+height = 1.9501221
+
 [node name="BrokenArmour" type="StaticBody3D" unique_id=1046556376]
 collision_layer = 2
 script = ExtResource("1_g46b5")
 
 [node name="broken-armour" parent="." unique_id=510841226 instance=ExtResource("1_o1sm0")]
+visible = false
 
 [node name="good_armour" parent="." unique_id=618032464 instance=ExtResource("2_g46b5")]
 visible = false
@@ -26,9 +493,96 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4795227, 0.11743164)
 shape = SubResource("BoxShape3D_d0iu3")
 
 [node name="Interactable" parent="." unique_id=451483875 instance=ExtResource("4_mmw06")]
+unique_name_in_owner = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Interactable" unique_id=947103087]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("CylinderShape3D_onqs7")
+
+[node name="ArmourPieces" type="Node3D" parent="." unique_id=439848046]
+
+[node name="body" parent="ArmourPieces" unique_id=426738438 instance=ExtResource("5_dv2o8")]
+transform = Transform3D(0.9927249, 0, 0.120403886, 0, 1, 0, -0.120403886, 0, 0.9927249, -0.052222222, 0, -0.036094546)
+
+[node name="base" parent="ArmourPieces" unique_id=2097247647 instance=ExtResource("6_3cm1o")]
+
+[node name="boot-l" parent="ArmourPieces" unique_id=1395983657 instance=ExtResource("7_v0gnq")]
+transform = Transform3D(-2.9178947e-08, 0.6675365, 0.7445771, -1, -4.371139e-08, 0, 3.25465e-08, -0.7445771, 0.6675365, 0.37435898, 0, 0.44120955)
+
+[node name="boot-r" parent="ArmourPieces" unique_id=862981225 instance=ExtResource("8_agmxx")]
+transform = Transform3D(4.358593e-08, -0.9971298, -0.07571064, -1, -4.3711385e-08, 1.0065924e-15, -3.3094185e-09, 0.07571064, -0.9971298, 0.14636302, 0, 0.42374554)
+
+[node name="helmet" parent="ArmourPieces" unique_id=1917199885 instance=ExtResource("9_d45ym")]
+transform = Transform3D(0.9999985, 0.0016054658, 0, -0.0016054658, 0.9999985, 0, 0, 0, 1, -2.2158065, 0.18236053, 0.028902493)
+
+[node name="spear" parent="ArmourPieces" unique_id=1870399582 instance=ExtResource("10_y8nr5")]
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, -5.9604645e-08, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=383346897]
+libraries/ = SubResource("AnimationLibrary_oln06")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=95484330]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 0.9973158, 0.0732197, 0, -0.0732197, 0.9973158, 0, 1.4985704, 1.7631037)
+
+[node name="Pass" type="CPUParticles3D" parent="." unique_id=1262642151]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3087299, 0)
+emitting = false
+amount = 50
+one_shot = true
+explosiveness = 1.0
+use_fixed_seed = true
+seed = 3290689502
+mesh = SubResource("QuadMesh_qvykn")
+emission_shape = 6
+emission_ring_axis = Vector3(0, 1, 0)
+emission_ring_height = 0.0
+emission_ring_radius = 0.0
+emission_ring_inner_radius = 0.0
+emission_ring_cone_angle = 90.0
+particle_flag_rotate_y = true
+direction = Vector3(0.5, 4, 0.5)
+spread = 180.0
+gravity = Vector3(0, -2, 0)
+initial_velocity_min = 3.0
+initial_velocity_max = 4.0
+color_initial_ramp = SubResource("Gradient_pu6vl")
+
+[node name="Hints" type="Node3D" parent="." unique_id=699325113]
+
+[node name="H1" type="MeshInstance3D" parent="Hints" unique_id=513789208]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11037207, 0.36018655, 0)
+visible = false
+material_override = SubResource("StandardMaterial3D_onqs7")
+mesh = SubResource("CylinderMesh_i7we0")
+
+[node name="H2" type="MeshInstance3D" parent="Hints" unique_id=1923583115]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.078662604, 0.36018655, 0)
+visible = false
+material_override = SubResource("StandardMaterial3D_onqs7")
+mesh = SubResource("CylinderMesh_i7we0")
+
+[node name="H3" type="MeshInstance3D" parent="Hints" unique_id=710687955]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.013475627, 1.0542477, 0)
+visible = false
+material_override = SubResource("StandardMaterial3D_onqs7")
+mesh = SubResource("CylinderMesh_dv2o8")
+
+[node name="H4" type="MeshInstance3D" parent="Hints" unique_id=1703201149]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0017545521, 1.6467782, 0)
+visible = false
+material_override = SubResource("StandardMaterial3D_onqs7")
+mesh = SubResource("CylinderMesh_3cm1o")
+
+[node name="H5" type="MeshInstance3D" parent="Hints" unique_id=851237709]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.092241764, 1.0941099, 0.20080808)
+visible = false
+material_override = SubResource("StandardMaterial3D_onqs7")
+mesh = SubResource("CylinderMesh_v0gnq")
 
 [connection signal="interact" from="Interactable" to="." method="_on_interactable_interact"]

@@ -87,6 +87,7 @@ anim_player = NodePath("../mesh/AnimationPlayer")
 parameters/Blend2/blend_amount = 1.0
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=813833311]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 6, -0.01758957)
 fov = 50.0
 

@@ -34,3 +34,10 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
+
+func swap_cam_to_player(value:bool):
+	if value:
+		%Camera3D.make_current()
+		%mesh.visible = true
+	else:
+		%mesh.visible = false

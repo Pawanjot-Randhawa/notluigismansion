@@ -343,3 +343,6 @@ transform = Transform3D(0.75077575, 0, -0.66055715, 0, 1, 0, 0.66055715, 0, 0.75
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.50390625, 0)
 gizmo_extents = 4.0
+
+[node name="BrokenArmour" parent="." unique_id=1462867911 instance=ExtResource("9_kek77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.0991297, 0.50000024, -3.1990285)

@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bkywd0s1e5hm5" path="res://Player/player.tscn" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://nbjr6s87grx" path="res://main.gd" id="1_vivmo"]
 [ext_resource type="PackedScene" uid="uid://dl4chch71jslm" path="res://World/BuildingBlocks/wall.tscn" id="2_h2yge"]
+[ext_resource type="Script" uid="uid://bf1ngrgeq0eyw" path="res://Scripts/room.gd" id="3_074og"]
 [ext_resource type="Texture2D" uid="uid://dvlqxp5a3nemc" path="res://assets/Pack/textures/parquet_oak.png" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://c66ipeh0nvq7e" path="res://World/BuildingBlocks/doorway_wall.tscn" id="3_lquwl"]
 [ext_resource type="PackedScene" uid="uid://d18loxxaj15wj" path="res://World/BuildingBlocks/window_wall.tscn" id="5_4c57u"]
@@ -15,6 +16,29 @@
 [ext_resource type="PackedScene" uid="uid://cg074mkqkgmbj" path="res://World/Repairs/fireplace.tscn" id="12_dg77c"]
 [ext_resource type="PackedScene" uid="uid://wt8scvk53sxm" path="res://World/Repairs/candle_stand.tscn" id="13_ycdy4"]
 [ext_resource type="PackedScene" uid="uid://cmkrsvrp8y6df" path="res://Enemies/wizard.tscn" id="14_w48qg"]
+[ext_resource type="Script" uid="uid://c438s1synxcuq" path="res://Scripts/roof_system.gd" id="16_2cqfq"]
+[ext_resource type="Texture2D" uid="uid://bbqkln2la3fik" path="res://assets/Pack/textures/damask.png" id="16_yaehf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_veaet"]
+size = Vector3(5.7795105, 1.2489072, 4.050598)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cegan"]
+size = Vector3(4.20562, 1.0888789, 4.050598)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_82xsv"]
+size = Vector3(4.289198, 1.1662656, 2.001215)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_getpj"]
+size = Vector3(2.2132702, 0.4166377, 7.7954683)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ryguw"]
+size = Vector3(8.184381, 0.71741897, 3.8943553)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d13ii"]
+size = Vector3(8.00211, 0.8706172, 3.7914143)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1u8w0"]
+size = Vector3(3.598607, 0.6748164, 7.739588)
 
 [sub_resource type="Environment" id="Environment_grnse"]
 background_mode = 1
@@ -36,6 +60,34 @@ agent_radius = 0.25
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1bvp3"]
 albedo_texture = ExtResource("3_h2yge")
 uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_074og"]
+albedo_texture = ExtResource("16_yaehf")
+uv1_scale = Vector3(8, 8, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_cegan"]
+size = Vector3(5.8154297, -0.005, 4.1367188)
+
+[sub_resource type="BoxMesh" id="BoxMesh_82xsv"]
+size = Vector3(5.9189453, -0.005, 4.086914)
+
+[sub_resource type="BoxMesh" id="BoxMesh_getpj"]
+size = Vector3(4.253662, -0.005, 4.070088)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ryguw"]
+size = Vector3(4.261963, -0.005, 2.14333)
+
+[sub_resource type="BoxMesh" id="BoxMesh_d13ii"]
+size = Vector3(2.3613281, -0.005, 7.8177586)
+
+[sub_resource type="BoxMesh" id="BoxMesh_1u8w0"]
+size = Vector3(3.8426514, -0.005, 8.108098)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0odxb"]
+size = Vector3(3.9055634, -0.005, 8.073594)
+
+[sub_resource type="BoxMesh" id="BoxMesh_lswn8"]
+size = Vector3(7.8741684, -0.005, 3.701836)
 
 [node name="main" type="Node" unique_id=1271598252]
 script = ExtResource("1_vivmo")
@@ -67,6 +119,75 @@ transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -2.9
 
 [node name="DoorwayWall2" parent="Doors" unique_id=2058315289 instance=ExtResource("3_lquwl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.200001, 0, 0.9999999)
+
+[node name="Area3Ds" type="Node3D" parent="Doors" unique_id=1164482601]
+
+[node name="A" type="Area3D" parent="Doors/Area3Ds" unique_id=194127315 node_paths=PackedStringArray("roof")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.051766, 0.6625978, 1.5466911)
+script = ExtResource("3_074og")
+roof = NodePath("../../../Roofs/A")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Doors/Area3Ds/A" unique_id=1196739959]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04612732, 0.16528893, 1.525299)
+shape = SubResource("BoxShape3D_veaet")
+
+[node name="B" type="Area3D" parent="Doors/Area3Ds" unique_id=1410909641 node_paths=PackedStringArray("roof")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.087772, 0.6625978, 1.5466911)
+script = ExtResource("3_074og")
+roof = NodePath("../../../Roofs/B")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Doors/Area3Ds/B" unique_id=1876559133]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04612732, 0.13446915, 1.525299)
+shape = SubResource("BoxShape3D_veaet")
+
+[node name="C" type="Area3D" parent="Doors/Area3Ds" unique_id=1944342599 node_paths=PackedStringArray("roof")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.311686, 0.6625978, 1.5466911)
+script = ExtResource("3_074og")
+roof = NodePath("../../../Roofs/C")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Doors/Area3Ds/C" unique_id=349357765]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0346565, 0.38184178, 1.525299)
+shape = SubResource("BoxShape3D_cegan")
+
+[node name="D" type="Area3D" parent="Doors/Area3Ds" unique_id=739460563 node_paths=PackedStringArray("roof")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.311686, 0.6625978, -0.37033522)
+script = ExtResource("3_074og")
+roof = NodePath("../../../Roofs/D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Doors/Area3Ds/D" unique_id=467875612]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.039607, 0.4205352, 0.2693032)
+shape = SubResource("BoxShape3D_82xsv")
+
+[node name="E" type="Area3D" parent="Doors/Area3Ds" unique_id=2143762707 node_paths=PackedStringArray("roof")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.311686, 0.6625978, -3.2128816)
+script = ExtResource("3_074og")
+roof = NodePath("../../../Roofs/E")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Doors/Area3Ds/E" unique_id=1337564659]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.038481712, 0.045721114, -1.9923196)
+shape = SubResource("BoxShape3D_getpj")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Doors/Area3Ds/E" unique_id=1649046553]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.2453365, 0.19611168, -3.9503078)
+shape = SubResource("BoxShape3D_ryguw")
+
+[node name="F" type="Area3D" parent="Doors/Area3Ds" unique_id=1362701675 node_paths=PackedStringArray("roof")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.311686, 0.6625978, -3.2128816)
+script = ExtResource("3_074og")
+roof = NodePath("../../../Roofs/F")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Doors/Area3Ds/F" unique_id=1987194189]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.315281, 0.2727108, 0.016441345)
+shape = SubResource("BoxShape3D_d13ii")
+
+[node name="G" type="Area3D" parent="Doors/Area3Ds" unique_id=263126920 node_paths=PackedStringArray("roof")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5302864, 0.6625978, -3.2128816)
+script = ExtResource("3_074og")
+roof = NodePath("../../../Roofs/G")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Doors/Area3Ds/G" unique_id=284946985]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5266293, 0.17481041, -1.9741158)
+shape = SubResource("BoxShape3D_1u8w0")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=623693866]
 environment = SubResource("Environment_grnse")
@@ -346,3 +467,50 @@ gizmo_extents = 4.0
 
 [node name="BrokenArmour" parent="." unique_id=1462867911 instance=ExtResource("9_kek77")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.0991297, 0.50000024, -3.1990285)
+
+[node name="Roofs" type="Node3D" parent="." unique_id=1209025935]
+
+[node name="A" type="MeshInstance3D" parent="Roofs" unique_id=62178386]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.104254, 3.02693, 3.1311617)
+material_override = SubResource("StandardMaterial3D_074og")
+mesh = SubResource("BoxMesh_cegan")
+
+[node name="B" type="MeshInstance3D" parent="Roofs" unique_id=1770955532]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.089939, 3.02693, 3.1311617)
+material_override = SubResource("StandardMaterial3D_074og")
+mesh = SubResource("BoxMesh_82xsv")
+
+[node name="C" type="MeshInstance3D" parent="Roofs" unique_id=839337291]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.29581, 2.9981, 3.1032174)
+material_override = SubResource("StandardMaterial3D_074og")
+mesh = SubResource("BoxMesh_getpj")
+
+[node name="D" type="MeshInstance3D" parent="Roofs" unique_id=1094207488]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.29581, 3.0084393, -0.027911663)
+material_override = SubResource("StandardMaterial3D_074og")
+mesh = SubResource("BoxMesh_ryguw")
+
+[node name="E" type="Node3D" parent="Roofs" unique_id=187245593]
+
+[node name="E1" type="MeshInstance3D" parent="Roofs/E" unique_id=201966637]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.246127, 3.0084393, -5.1965113)
+material_override = SubResource("StandardMaterial3D_074og")
+mesh = SubResource("BoxMesh_d13ii")
+
+[node name="E2" type="MeshInstance3D" parent="Roofs/E" unique_id=1130070215]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -9.012188, 3.0084393, -7.1845694)
+material_override = SubResource("StandardMaterial3D_074og")
+mesh = SubResource("BoxMesh_1u8w0")
+
+[node name="F" type="MeshInstance3D" parent="Roofs" unique_id=2109590679]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -8.994936, 3.0084393, -3.1819208)
+material_override = SubResource("StandardMaterial3D_074og")
+mesh = SubResource("BoxMesh_0odxb")
+
+[node name="G" type="MeshInstance3D" parent="Roofs" unique_id=1275791042]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.9849078, 3.0084393, -5.1662235)
+material_override = SubResource("StandardMaterial3D_074og")
+mesh = SubResource("BoxMesh_lswn8")
+
+[node name="RoofSystem" type="Node" parent="." unique_id=1564086881]
+script = ExtResource("16_2cqfq")

@@ -437,9 +437,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.300001, 0, 5.2)
 [node name="Post9" parent="NavigationRegion3D/Posts" unique_id=1162308627 instance=ExtResource("5_7mycd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.1, 0, 5.2)
 
-[node name="GreenBlob" parent="." unique_id=487428178 node_paths=PackedStringArray("player") instance=ExtResource("7_272bh")]
+[node name="GreenBlob" parent="." unique_id=487428178 node_paths=PackedStringArray("markers") instance=ExtResource("7_272bh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0.5029541, -8)
-player = NodePath("../Player")
+markers = [NodePath("../SlimeRoamPoints/Marker3D"), NodePath("../SlimeRoamPoints/Marker3D2"), NodePath("../SlimeRoamPoints/Marker3D3"), NodePath("../SlimeRoamPoints/Marker3D4"), NodePath("../SlimeRoamPoints/Marker3D5"), NodePath("../SlimeRoamPoints/Marker3D6"), NodePath("../SlimeRoamPoints/Marker3D7"), NodePath("../SlimeRoamPoints/Marker3D8"), NodePath("../SlimeRoamPoints/Marker3D9")]
 
 [node name="Yeti" parent="." unique_id=1393895750 instance=ExtResource("8_5vw27")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.325815, 0.8359375, 0)
@@ -470,6 +470,7 @@ gizmo_extents = 4.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.0991297, 0.50000024, -3.1990285)
 
 [node name="Roofs" type="Node3D" parent="." unique_id=1209025935]
+visible = false
 
 [node name="A" type="MeshInstance3D" parent="Roofs" unique_id=62178386]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.104254, 3.02693, 3.1311617)
@@ -524,3 +525,33 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.8444824, 0, 12.814842)
 
 [node name="fireplace" parent="." unique_id=2115959881 instance=ExtResource("12_dg77c")]
 transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 11.895148, 0.50927484, -3.8484938)
+
+[node name="SlimeRoamPoints" type="Node3D" parent="." unique_id=2132505981]
+
+[node name="Marker3D" type="Marker3D" parent="SlimeRoamPoints" unique_id=1849499640]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -0.20275569)
+
+[node name="Marker3D2" type="Marker3D" parent="SlimeRoamPoints" unique_id=1735265616]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.492086, 0.5, -0.20275569)
+
+[node name="Marker3D3" type="Marker3D" parent="SlimeRoamPoints" unique_id=984279105]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.053345, 0.5, -0.20275569)
+
+[node name="Marker3D4" type="Marker3D" parent="SlimeRoamPoints" unique_id=1722158290]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.053345, 0.5, 3.695689)
+
+[node name="Marker3D5" type="Marker3D" parent="SlimeRoamPoints" unique_id=1803953676]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.391658, 0.5, 3.695689)
+
+[node name="Marker3D6" type="Marker3D" parent="SlimeRoamPoints" unique_id=1783100304]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0366321, 0.5, 3.695689)
+
+[node name="Marker3D7" type="Marker3D" parent="SlimeRoamPoints" unique_id=1062767832]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0366321, 0.5, -6.1021605)
+
+[node name="Marker3D8" type="Marker3D" parent="SlimeRoamPoints" unique_id=133713475]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.717672, 0.5, -8.176811)
+
+[node name="Marker3D9" type="Marker3D" parent="SlimeRoamPoints" unique_id=2140739915]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.225517, 0.5, -3.783331)
+>>>>>>> Stashed changes

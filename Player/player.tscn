@@ -66,7 +66,7 @@ shape = SubResource("CapsuleShape3D_d0iu3")
 unique_name_in_owner = true
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
-[node name="Skeleton3D" parent="mesh/character-male-c" parent_id_path=PackedInt32Array(528091184, 1426104503) index="0" unique_id=1767435334]
+[node name="Skeleton3D" parent="mesh/character-male-c" parent_id_path=PackedInt32Array(528091184, 1548646320) index="0" unique_id=1682099275]
 bones/4/rotation = Quaternion(0, 0, -0.3826835, 0.92387956)
 bones/5/rotation = Quaternion(0, 0.5, 0, 0.8660254)
 
@@ -90,5 +90,7 @@ parameters/Blend2/blend_amount = 1.0
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 6, -0.01758957)
 fov = 50.0
+
+[node name="AudioListener3D" type="AudioListener3D" parent="." unique_id=1678952739]
 
 [editable path="mesh"]

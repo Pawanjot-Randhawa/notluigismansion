@@ -32,6 +32,7 @@ func _process(delta: float) -> void:
 	# 2. Input check (Sweet spot window when scale shrinks between 0.6 and 0.4)
 	if accept_input and Input.is_action_just_pressed("interact"):
 		if active_ring.scale.x >= 0.9 and active_ring.scale.x <= 1.1:
+			%Sparks.restart()
 			pass_stage()
 		else:
 			fail_minigame()
@@ -55,10 +56,10 @@ func pass_stage() -> void:
 	prompts[current_stage].modulate = Color.GREEN 
 	rings[current_stage].visible = false         
 	if current_stage < 2:
+		%SparkNoise.play(0.2)
 		current_stage += 1
 		start_stage()
 	else:
-		await get_tree().create_timer(.5).timeout
 		win_game()
 
 func fail_minigame() -> void:
@@ -69,11 +70,13 @@ func win_game() -> void:
 	is_active = false
 	ui_container.visible = false
 	%fire.show()
+	%FireNoise.play()
+	%BurningNoise.play()
 	animation_player.play("burn")
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(1.25).timeout
 	%Pass.restart()
 	await %Pass.finished
-	await get_tree().create_timer(.5).timeout
+	await get_tree().create_timer(1).timeout
 	Game.player.swap_cam_to_player(true)
 
 func reset():

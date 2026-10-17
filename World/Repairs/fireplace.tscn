@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://dxil8w2j38jgc" path="res://Util/interactable.tscn" id="5_wde3q"]
 [ext_resource type="Texture2D" uid="uid://cdv253eweg3nv" path="res://assets/UI/keyboard-&-mouse_sheet_double.png" id="6_0105r"]
 [ext_resource type="Texture2D" uid="uid://nvm27tm0a8be" path="res://assets/UI/generic_sheet_double.png" id="7_oniua"]
+[ext_resource type="AudioStream" uid="uid://rn18dse2i281" path="res://assets/Sound/fire-pack/fireplace/Fire Themed GUI - Burning Pickaxe (2).wav" id="7_tw8g5"]
+[ext_resource type="AudioStream" uid="uid://dqyrb5vwol36k" path="res://assets/Sound/fire-pack/fireplace/Fire Themed GUI - Pure Fire (9).wav" id="8_w3ris"]
+[ext_resource type="AudioStream" uid="uid://bnvrlh7648g3b" path="res://assets/Sound/fire-pack/fireplace/burning.wav" id="9_w3ris"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_d0iu3"]
 size = Vector3(1.6057129, 1.4023438, 0.5057373)
@@ -64,6 +67,27 @@ size = Vector2(0.1, 0.1)
 
 [sub_resource type="Gradient" id="Gradient_0105r"]
 colors = PackedColorArray(2.4065375e-07, 0.40219265, 0.5875205, 1, 0.85880345, 0, 0.32934165, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_onqs7"]
+albedo_color = Color(0.76554954, 0.3272667, 4.813075e-07, 1)
+emission_enabled = true
+emission = Color(0.9718153, 0.33114362, 0.0028077555, 1)
+emission_energy_multiplier = 2.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_d0iu3"]
+material = SubResource("StandardMaterial3D_onqs7")
+top_radius = 0.01
+bottom_radius = 0.0
+height = 0.1
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_d0iu3"]
+random_pitch = 1.0686826
+streams_count = 1
+stream_0/stream = ExtResource("7_tw8g5")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_onqs7"]
+streams_count = 1
+stream_0/stream = ExtResource("8_w3ris")
 
 [node name="fireplace" type="StaticBody3D" unique_id=1138728904]
 transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
@@ -182,6 +206,42 @@ gravity = Vector3(0, -2, 0)
 initial_velocity_min = 3.0
 initial_velocity_max = 4.0
 color_initial_ramp = SubResource("Gradient_0105r")
+
+[node name="Sparks" type="CPUParticles3D" parent="." unique_id=1647476016]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 0, 0.34745872, 0.2984213)
+emitting = false
+amount = 24
+lifetime = 0.8
+one_shot = true
+explosiveness = 1.0
+use_fixed_seed = true
+seed = 26
+fixed_fps = 60
+mesh = SubResource("CylinderMesh_d0iu3")
+particle_flag_align_y = true
+direction = Vector3(1, 1, 1)
+spread = 180.0
+initial_velocity_min = 3.0
+initial_velocity_max = 4.0
+scale_amount_min = 0.8
+scale_amount_max = 1.5
+
+[node name="SparkNoise" type="AudioStreamPlayer" parent="." unique_id=1939508500]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_d0iu3")
+bus = &"Sounds"
+
+[node name="FireNoise" type="AudioStreamPlayer" parent="." unique_id=1465357363]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_onqs7")
+bus = &"Sounds"
+
+[node name="BurningNoise" type="AudioStreamPlayer3D" parent="." unique_id=752904873]
+unique_name_in_owner = true
+stream = ExtResource("9_w3ris")
+max_distance = 5.0
+bus = &"Sounds"
 
 [connection signal="interact" from="Interactable" to="." method="_on_interactable_interact"]
 

@@ -518,3 +518,9 @@ script = ExtResource("16_2cqfq")
 
 [node name="Painting" parent="." unique_id=1592485192 instance=ExtResource("19_cegan")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.570575, 0.50249386, -1.0999998)
+
+[node name="broken_window" parent="." unique_id=427125948 instance=ExtResource("11_efxa6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.8444824, 0, 12.814842)
+
+[node name="fireplace" parent="." unique_id=2115959881 instance=ExtResource("12_dg77c")]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 11.895148, 0.50927484, -3.8484938)

@@ -509,7 +509,7 @@ transform = Transform3D(-2.9178947e-08, 0.6675365, 0.7445771, -1, -4.371139e-08,
 transform = Transform3D(4.358593e-08, -0.9971298, -0.07571064, -1, -4.3711385e-08, 1.0065924e-15, -3.3094185e-09, 0.07571064, -0.9971298, 0.14636302, 0, 0.42374554)
 
 [node name="helmet" parent="ArmourPieces" unique_id=1917199885 instance=ExtResource("9_d45ym")]
-transform = Transform3D(0.9999985, 0.0016054658, 0, -0.0016054658, 0.9999985, 0, 0, 0, 1, -2.2158065, 0.18236053, 0.028902493)
+transform = Transform3D(0.99999845, 0.0016054657, 0, -0.0016054657, 0.99999845, 0, 0, 0, 1, -2.2158065, 0.18236053, 0.028902493)
 
 [node name="spear" parent="ArmourPieces" unique_id=1870399582 instance=ExtResource("10_y8nr5")]
 transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, -5.9604645e-08, 0, 0)

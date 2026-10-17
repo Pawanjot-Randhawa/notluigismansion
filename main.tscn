@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://cmkrsvrp8y6df" path="res://Enemies/wizard.tscn" id="14_w48qg"]
 [ext_resource type="Script" uid="uid://c438s1synxcuq" path="res://Scripts/roof_system.gd" id="16_2cqfq"]
 [ext_resource type="Texture2D" uid="uid://bbqkln2la3fik" path="res://assets/Pack/textures/damask.png" id="16_yaehf"]
+[ext_resource type="PackedScene" uid="uid://cm6rbh3wawjb4" path="res://World/Repairs/painting.tscn" id="19_cegan"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_veaet"]
 size = Vector3(5.7795105, 1.2489072, 4.050598)
@@ -514,3 +515,6 @@ mesh = SubResource("BoxMesh_lswn8")
 
 [node name="RoofSystem" type="Node" parent="." unique_id=1564086881]
 script = ExtResource("16_2cqfq")
+
+[node name="Painting" parent="." unique_id=1592485192 instance=ExtResource("19_cegan")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.570575, 0.50249386, -1.0999998)

@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://cm6rbh3wawjb4"]
+
+[ext_resource type="PackedScene" uid="uid://bpatqt1ksloin" path="res://assets/Pack/glb/portrait_lady.glb" id="1_58oam"]
+[ext_resource type="Script" uid="uid://b4x7ur2ouu0ot" path="res://World/Repairs/painting.gd" id="1_67mv1"]
+[ext_resource type="PackedScene" uid="uid://dxil8w2j38jgc" path="res://Util/interactable.tscn" id="2_67mv1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d0iu3"]
+size = Vector3(0.8791504, 1.112793, 0.06542969)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_d0iu3"]
+height = 2.2167969
+radius = 4.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_onqs7"]
+transparency = 1
+albedo_color = Color(0.19607843, 0.6039216, 0.39215687, 0.6901961)
+
+[sub_resource type="BoxMesh" id="BoxMesh_d0iu3"]
+size = Vector3(0.9316406, 1.1035156, 0.07873535)
+
+[sub_resource type="QuadMesh" id="QuadMesh_qvykn"]
+size = Vector2(0.1, 0.1)
+
+[sub_resource type="Gradient" id="Gradient_pu6vl"]
+colors = PackedColorArray(2.4065375e-07, 0.40219265, 0.5875205, 1, 0.85880345, 0, 0.32934165, 1)
+
+[node name="Painting" type="StaticBody3D" unique_id=1592485192]
+script = ExtResource("1_67mv1")
+
+[node name="good-pic" parent="." unique_id=1207828005 instance=ExtResource("1_58oam")]
+unique_name_in_owner = true
+visible = false
+
+[node name="ground-pic" parent="." unique_id=1688203792 instance=ExtResource("1_58oam")]
+unique_name_in_owner = true
+transform = Transform3D(-0.43869433, -0.89863634, -3.9280643e-08, 0, -4.371139e-08, 1, -0.89863634, 0.43869433, 1.9175939e-08, 1.1376445, 0, 0)
+
+[node name="Painting" type="CollisionShape3D" parent="." unique_id=1076415759]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.599831, 0.030273438)
+shape = SubResource("BoxShape3D_d0iu3")
+
+[node name="Interactable" parent="." unique_id=451483875 instance=ExtResource("2_67mv1")]
+unique_name_in_owner = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactable" unique_id=1223636572]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0742188, 0)
+shape = SubResource("CylinderShape3D_d0iu3")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=837294203]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9151093, 2)
+fov = 50.0
+
+[node name="Pivot" type="Node3D" parent="." unique_id=776145504]
+unique_name_in_owner = true
+transform = Transform3D(0.9982398, 0.059306376, 0, -0.059306376, 0.9982398, 0, 0, 0, 1, 0, 2.1580677, 0)
+visible = false
+
+[node name="good-pic2" parent="Pivot" unique_id=1239731979 instance=ExtResource("1_58oam")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.1580677, 0)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1170096761]
+
+[node name="Hint" type="MeshInstance3D" parent="." unique_id=858518203]
+unique_name_in_owner = true
+transform = Transform3D(4, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5976563, 0.032043457)
+visible = false
+material_override = SubResource("StandardMaterial3D_onqs7")
+mesh = SubResource("BoxMesh_d0iu3")
+
+[node name="Pass" type="CPUParticles3D" parent="." unique_id=211129610]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6068792, 0)
+emitting = false
+amount = 50
+one_shot = true
+explosiveness = 1.0
+use_fixed_seed = true
+seed = 3290689502
+mesh = SubResource("QuadMesh_qvykn")
+emission_shape = 6
+emission_ring_axis = Vector3(0, 1, 0)
+emission_ring_height = 0.0
+emission_ring_radius = 0.0
+emission_ring_inner_radius = 0.0
+emission_ring_cone_angle = 90.0
+particle_flag_rotate_y = true
+direction = Vector3(0.5, 4, 0.5)
+spread = 180.0
+gravity = Vector3(0, -2, 0)
+initial_velocity_min = 3.0
+initial_velocity_max = 4.0
+color_initial_ramp = SubResource("Gradient_pu6vl")
+
+[connection signal="interact" from="Interactable" to="." method="_on_interactable_interact"]

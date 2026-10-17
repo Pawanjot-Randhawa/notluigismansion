@@ -8,7 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://d2v4245kvpi1m" path="res://assets/Pack/brokenAssets/boot-l.glb" id="7_v0gnq"]
 [ext_resource type="PackedScene" uid="uid://don360lc8stum" path="res://assets/Pack/brokenAssets/boot-r.glb" id="8_agmxx"]
 [ext_resource type="PackedScene" uid="uid://bv0g68rwonhrl" path="res://assets/Pack/brokenAssets/helmet.glb" id="9_d45ym"]
+[ext_resource type="AudioStream" uid="uid://bbqdflbrwstb8" path="res://assets/Sound/fire-pack/armour/Fire Themed GUI - Armor.wav" id="10_dv2o8"]
 [ext_resource type="PackedScene" uid="uid://bqp753lo771c4" path="res://assets/Pack/brokenAssets/spear.glb" id="10_y8nr5"]
+[ext_resource type="AudioStream" uid="uid://b04li8pspu5bt" path="res://assets/Sound/fire-pack/armour/Fire Themed GUI - Armor Echo (1).wav" id="11_3cm1o"]
+[ext_resource type="AudioStream" uid="uid://cn0l2rtnlulfx" path="res://assets/Sound/fire-pack/candles/Fire Themed GUI - Fire Ring.wav" id="12_v0gnq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_d0iu3"]
 size = Vector3(1.1630859, 0.95880127, 0.7651367)
@@ -358,7 +361,7 @@ tracks/0/path = NodePath("ArmourPieces:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.6333333),
+"times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 0.14358751),
 "update": 1,
 "values": [true, false]
@@ -370,7 +373,7 @@ tracks/1/path = NodePath("good_armour:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.6),
+"times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -382,11 +385,25 @@ tracks/2/path = NodePath("Pass")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.56666666),
+"times": PackedFloat32Array(1),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [true],
 "method": &"restart"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CongratsNoise")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
 }]
 }
 
@@ -509,7 +526,7 @@ transform = Transform3D(-2.9178947e-08, 0.6675365, 0.7445771, -1, -4.371139e-08,
 transform = Transform3D(4.358593e-08, -0.9971298, -0.07571064, -1, -4.3711385e-08, 1.0065924e-15, -3.3094185e-09, 0.07571064, -0.9971298, 0.14636302, 0, 0.42374554)
 
 [node name="helmet" parent="ArmourPieces" unique_id=1917199885 instance=ExtResource("9_d45ym")]
-transform = Transform3D(0.99999845, 0.0016054657, 0, -0.0016054657, 0.99999845, 0, 0, 0, 1, -2.2158065, 0.18236053, 0.028902493)
+transform = Transform3D(0.9999984, 0.0016054655, 0, -0.0016054655, 0.9999984, 0, 0, 0, 1, -2.2158065, 0.18236053, 0.028902493)
 
 [node name="spear" parent="ArmourPieces" unique_id=1870399582 instance=ExtResource("10_y8nr5")]
 transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, -5.9604645e-08, 0, 0)
@@ -580,5 +597,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.092241764, 1.0941099, 0.20
 visible = false
 material_override = SubResource("StandardMaterial3D_onqs7")
 mesh = SubResource("CylinderMesh_v0gnq")
+
+[node name="FinishSound" type="AudioStreamPlayer" parent="." unique_id=165685608]
+unique_name_in_owner = true
+stream = ExtResource("10_dv2o8")
+volume_db = -5.0
+bus = &"Sounds"
+
+[node name="CorrectSound" type="AudioStreamPlayer" parent="." unique_id=2038133378]
+unique_name_in_owner = true
+stream = ExtResource("11_3cm1o")
+volume_db = -10.0
+bus = &"Sounds"
+
+[node name="CongratsNoise" type="AudioStreamPlayer" parent="." unique_id=1467458321]
+unique_name_in_owner = true
+stream = ExtResource("12_v0gnq")
+volume_db = -8.0
 
 [connection signal="interact" from="Interactable" to="." method="_on_interactable_interact"]

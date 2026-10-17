@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://rn18dse2i281" path="res://assets/Sound/fire-pack/fireplace/Fire Themed GUI - Burning Pickaxe (2).wav" id="7_tw8g5"]
 [ext_resource type="AudioStream" uid="uid://dqyrb5vwol36k" path="res://assets/Sound/fire-pack/fireplace/Fire Themed GUI - Pure Fire (9).wav" id="8_w3ris"]
 [ext_resource type="AudioStream" uid="uid://bnvrlh7648g3b" path="res://assets/Sound/fire-pack/fireplace/burning.wav" id="9_w3ris"]
+[ext_resource type="AudioStream" uid="uid://cn0l2rtnlulfx" path="res://assets/Sound/fire-pack/candles/Fire Themed GUI - Fire Ring.wav" id="10_a4vr4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_d0iu3"]
 size = Vector3(1.6057129, 1.4023438, 0.5057373)
@@ -242,6 +243,11 @@ unique_name_in_owner = true
 stream = ExtResource("9_w3ris")
 max_distance = 5.0
 bus = &"Sounds"
+
+[node name="CongratsNoise" type="AudioStreamPlayer" parent="." unique_id=1699080382]
+unique_name_in_owner = true
+stream = ExtResource("10_a4vr4")
+volume_db = -8.0
 
 [connection signal="interact" from="Interactable" to="." method="_on_interactable_interact"]
 

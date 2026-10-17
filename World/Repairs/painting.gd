@@ -25,8 +25,10 @@ func _input(event: InputEvent) -> void:
 	if not_done:
 		if Input.is_action_just_pressed("interact"):
 			direction = 1
+			%SqueakNoise.play()
 		elif Input.is_action_just_pressed("q"):
 			direction = -1
+			%SqueakNoise.play()
 
 func exit():
 	%Hint.hide()
@@ -34,8 +36,9 @@ func exit():
 	%"good-pic".show()
 	await get_tree().create_timer(.5).timeout
 	%Pass.restart()
+	%FinalSound.play()
 	await %Pass.finished
-	await get_tree().create_timer(.5).timeout
+	await get_tree().create_timer(.75).timeout
 	Game.player.swap_cam_to_player(true)
 
 

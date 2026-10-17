@@ -29,6 +29,7 @@ func _process(delta: float) -> void:
 func qt_animation():
 	if count > 4:
 		%UI.hide()
+		%FinalSound.play()
 		exit()
 		return
 	%UI.show()
@@ -52,6 +53,7 @@ func qte_result():
 			candles[count].visible = true
 		count += 1
 		target_length -= 0.02
+		%PassSound.play()
 		await get_tree().create_timer(1.0).timeout
 		qt_animation()
 	else:

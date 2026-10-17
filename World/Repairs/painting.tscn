@@ -3,6 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://bpatqt1ksloin" path="res://assets/Pack/glb/portrait_lady.glb" id="1_58oam"]
 [ext_resource type="Script" uid="uid://b4x7ur2ouu0ot" path="res://World/Repairs/painting.gd" id="1_67mv1"]
 [ext_resource type="PackedScene" uid="uid://dxil8w2j38jgc" path="res://Util/interactable.tscn" id="2_67mv1"]
+[ext_resource type="AudioStream" uid="uid://d1lm0hkof120m" path="res://assets/Sound/myUIpack/painting/SFX_Movement_Footstep_Squeaky_1.wav" id="4_6h3eu"]
+[ext_resource type="AudioStream" uid="uid://u6buhoi3lcjd" path="res://assets/Sound/myUIpack/painting/SFX_Movement_Footstep_Squeaky_3.wav" id="5_kcb87"]
+[ext_resource type="AudioStream" uid="uid://b5l5y6wbs7ik0" path="res://assets/Sound/myUIpack/painting/SFX_Movement_Footstep_Squeaky_5.wav" id="6_5blw6"]
+[ext_resource type="AudioStream" uid="uid://cn0l2rtnlulfx" path="res://assets/Sound/fire-pack/candles/Fire Themed GUI - Fire Ring.wav" id="7_s7lva"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_d0iu3"]
 size = Vector3(0.8791504, 1.112793, 0.06542969)
@@ -23,6 +27,13 @@ size = Vector2(0.1, 0.1)
 
 [sub_resource type="Gradient" id="Gradient_pu6vl"]
 colors = PackedColorArray(2.4065375e-07, 0.40219265, 0.5875205, 1, 0.85880345, 0, 0.32934165, 1)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_d0iu3"]
+random_pitch = 1.0656005
+streams_count = 3
+stream_0/stream = ExtResource("4_6h3eu")
+stream_1/stream = ExtResource("5_kcb87")
+stream_2/stream = ExtResource("6_5blw6")
 
 [node name="Painting" type="StaticBody3D" unique_id=1592485192]
 script = ExtResource("1_67mv1")
@@ -91,5 +102,15 @@ gravity = Vector3(0, -2, 0)
 initial_velocity_min = 3.0
 initial_velocity_max = 4.0
 color_initial_ramp = SubResource("Gradient_pu6vl")
+
+[node name="SqueakNoise" type="AudioStreamPlayer" parent="." unique_id=1998231282]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_d0iu3")
+
+[node name="FinalSound" type="AudioStreamPlayer" parent="." unique_id=795803944]
+unique_name_in_owner = true
+stream = ExtResource("7_s7lva")
+volume_db = -8.0
+bus = &"Sounds"
 
 [connection signal="interact" from="Interactable" to="." method="_on_interactable_interact"]

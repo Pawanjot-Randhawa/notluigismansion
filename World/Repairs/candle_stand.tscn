@@ -6,6 +6,8 @@
 [ext_resource type="Shader" uid="uid://cg7h0up8cstfx" path="res://Shaders/radial_quicktime.gdshader" id="5_7fe7m"]
 [ext_resource type="PackedScene" uid="uid://74ahm28qqfbr" path="res://assets/Pack/brokenAssets/candle-small.glb" id="6_5qgnu"]
 [ext_resource type="PackedScene" uid="uid://t4piwlhbr8yj" path="res://assets/Pack/brokenAssets/candle-big.glb" id="7_4ldjl"]
+[ext_resource type="AudioStream" uid="uid://djnx6p2y5cdby" path="res://assets/Sound/fire-pack/candles/Fire Themed GUI - Confirmation (2).wav" id="7_dbheo"]
+[ext_resource type="AudioStream" uid="uid://cn0l2rtnlulfx" path="res://assets/Sound/fire-pack/candles/Fire Themed GUI - Fire Ring.wav" id="8_msekf"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_d0iu3"]
 height = 1.4963379
@@ -124,5 +126,17 @@ gravity = Vector3(0, -2, 0)
 initial_velocity_min = 3.0
 initial_velocity_max = 4.0
 color_initial_ramp = SubResource("Gradient_pu6vl")
+
+[node name="PassSound" type="AudioStreamPlayer" parent="." unique_id=2102751381]
+unique_name_in_owner = true
+stream = ExtResource("7_dbheo")
+volume_db = -5.0
+bus = &"Sounds"
+
+[node name="FinalSound" type="AudioStreamPlayer" parent="." unique_id=100265251]
+unique_name_in_owner = true
+stream = ExtResource("8_msekf")
+volume_db = -8.0
+bus = &"Sounds"
 
 [connection signal="interact" from="Interactable" to="." method="_on_interactable_interact"]

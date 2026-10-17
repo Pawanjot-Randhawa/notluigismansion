@@ -24,6 +24,7 @@ func _process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("interact"):
 		current_time_pos -= mash_power
+		%InputSound.play()
 
 	current_time_pos = clamp(current_time_pos, 0.0, start_time)
 	animation_player.seek(current_time_pos, true)
@@ -37,6 +38,7 @@ func exit():
 	progress_bar.hide()
 	await get_tree().create_timer(.5).timeout
 	%Pass.restart()
+	%FinalSound.play()
 	await %Pass.finished
 	await get_tree().create_timer(.5).timeout
 	Game.player.swap_cam_to_player(true)

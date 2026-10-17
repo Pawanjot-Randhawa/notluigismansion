@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://bbf3bw7hjtgrt" path="res://World/Repairs/broken_window.gd" id="1_053f2"]
 [ext_resource type="PackedScene" uid="uid://c8aamrgd48x38" path="res://assets/Pack/glb/window_tall.glb" id="1_rm6t0"]
 [ext_resource type="PackedScene" uid="uid://dxil8w2j38jgc" path="res://Util/interactable.tscn" id="3_c6qkh"]
+[ext_resource type="AudioStream" uid="uid://ck345a1tlqrvq" path="res://assets/Sound/myUIpack/window/SFX_Movement_Footstep_Huge_1.wav" id="4_icp2x"]
+[ext_resource type="AudioStream" uid="uid://cn0l2rtnlulfx" path="res://assets/Sound/fire-pack/candles/Fire Themed GUI - Fire Ring.wav" id="5_lqg7g"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_d0iu3"]
 height = 2.5
@@ -73,6 +75,17 @@ gravity = Vector3(0, -2, 0)
 initial_velocity_min = 3.0
 initial_velocity_max = 4.0
 color_initial_ramp = SubResource("Gradient_c6qkh")
+
+[node name="InputSound" type="AudioStreamPlayer" parent="." unique_id=1857701986]
+unique_name_in_owner = true
+stream = ExtResource("4_icp2x")
+volume_db = -5.0
+
+[node name="FinalSound" type="AudioStreamPlayer" parent="." unique_id=710080144]
+unique_name_in_owner = true
+stream = ExtResource("5_lqg7g")
+volume_db = -8.0
+bus = &"Sounds"
 
 [connection signal="interact" from="Interactable" to="." method="_on_interactable_interact"]
 

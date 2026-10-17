@@ -34,6 +34,7 @@ func animation_order():
 	elif count == 4:
 		animation_player.play("spear")
 	else:
+		%FinishSound.play()
 		animation_player.play("pass")
 		await animation_player.animation_finished
 		Game.player.swap_cam_to_player(true)
@@ -41,6 +42,7 @@ func animation_order():
 func success():
 	animation_player.pause()
 	count += 1
+	%CorrectSound.play(.25)
 	animation_order()
 
 func fail():

@@ -415,7 +415,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.1, 0, 5.2)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.500001, 0.49987793, -4.85)
 
 [node name="broken_window" parent="Repairs" unique_id=427125948 instance=ExtResource("8_ln20m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.9959555, 0.0035054684, 5.2077146)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.9959555, 0.5, 5.2077146)
 
 [node name="fireplace" parent="Repairs" unique_id=1138728904 instance=ExtResource("9_yen21")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12330681, 0.50039315, -9.09216)

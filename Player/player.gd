@@ -3,8 +3,11 @@ class_name Player
 
 @export var rotation_speed: float = PI / 16
 
-const SPEED = 5.0
-const JUMP_VELOCITY = 4.5
+# For original reference, never changes
+const DEFAULT_SPEED: float = 5.0
+
+var SPEED: float = 5.0
+const JUMP_VELOCITY: float = 4.5
 var moving: bool = false
 
 func _ready() -> void:
@@ -41,3 +44,21 @@ func swap_cam_to_player(value:bool):
 		%mesh.visible = true
 	else:
 		%mesh.visible = false
+
+func get_movement_speed() -> float:
+	return SPEED
+
+func set_movement_speed(amount: float):
+	SPEED = amount
+
+func reset_movement_speed() -> void:
+	SPEED = DEFAULT_SPEED
+
+func slow_movement_by(modifier: float) -> void:
+	# If the speed - modifier is <= 0, go to 1
+	var potential_speed: float = SPEED - modifier
+	const FALLBACK_SPEED = 1
+	SPEED = potential_speed if potential_speed > 0 else FALLBACK_SPEED
+
+func is_slowed() -> bool:
+	return SPEED == DEFAULT_SPEED

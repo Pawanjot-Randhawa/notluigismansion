@@ -13,13 +13,13 @@ script = ExtResource("1_7pk8f")
 
 [node name="GreenBlob" parent="." unique_id=141161685 instance=ExtResource("1_02d3i")]
 
-[node name="Skeleton3D" parent="GreenBlob/CharacterArmature" parent_id_path=PackedInt32Array(141161685, 2051586716) index="0" unique_id=454790364]
+[node name="Skeleton3D" parent="GreenBlob/CharacterArmature" parent_id_path=PackedInt32Array(141161685, 957830948) index="0" unique_id=1348006256]
 bones/1/position = Vector3(0, 0.0966387, 0)
 bones/1/rotation = Quaternion(0, 0, 0, 1)
 bones/2/rotation = Quaternion(0, 0, 0, 1)
 bones/3/rotation = Quaternion(4.5239313e-36, 3.5471498e-10, -0.0026400534, 0.9999966)
 
-[node name="AnimationPlayer" parent="GreenBlob" index="1" unique_id=1750944977]
+[node name="AnimationPlayer" parent="GreenBlob" index="1" unique_id=1838519211]
 playback_default_blend_time = 0.2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1757306554]

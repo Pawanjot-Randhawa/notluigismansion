@@ -26,7 +26,7 @@ script = ExtResource("1_qxm8f")
 [node name="Yeti" parent="." unique_id=1849694085 instance=ExtResource("1_waijt")]
 unique_name_in_owner = true
 
-[node name="Skeleton3D" parent="Yeti/CharacterArmature" parent_id_path=PackedInt32Array(1849694085, 1792544863) index="0" unique_id=1640023179]
+[node name="Skeleton3D" parent="Yeti/CharacterArmature" parent_id_path=PackedInt32Array(1849694085, 953820282) index="0" unique_id=669554825]
 bones/1/position = Vector3(0, 0.0966387, 0)
 bones/1/rotation = Quaternion(0, 0, 0, 1)
 bones/2/rotation = Quaternion(0, 0, 0, 1)

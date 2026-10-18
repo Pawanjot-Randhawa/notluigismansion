@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cwusk0yx8wrao" path="res://Enemies/yeti.gd" id="1_qxm8f"]
 [ext_resource type="PackedScene" uid="uid://dvk0rduffjun3" path="res://assets/Monsters/Blobs/Yeti.gltf" id="1_waijt"]
+[ext_resource type="AudioStream" uid="uid://6tk14gxucmic" path="res://assets/Sound/freeze.wav" id="3_ghqh1"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_d0iu3"]
 radius = 0.25
@@ -71,6 +72,12 @@ gravity = Vector3(0, 0, 0)
 initial_velocity_min = 4.0
 initial_velocity_max = 5.0
 color = Color(0.70980394, 0.8235294, 0.8784314, 1)
+
+[node name="FreezeNoise" type="AudioStreamPlayer" parent="." unique_id=1257564173]
+unique_name_in_owner = true
+stream = ExtResource("3_ghqh1")
+volume_db = -8.0
+bus = &"Sounds"
 
 [connection signal="target_reached" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_target_reached"]
 [connection signal="body_entered" from="TriggerZone" to="." method="_on_trigger_zone_body_entered"]

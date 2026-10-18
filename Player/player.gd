@@ -14,6 +14,9 @@ func _ready() -> void:
 	Game.player = self
 
 func _physics_process(delta: float) -> void:
+	if not %FreezeTimer.paused:
+		var percent = (%FreezeTimer.time_left / %FreezeTimer.wait_time) * 100.0
+		%FreezeCircle.value = percent
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -64,6 +67,19 @@ func slow_movement_by(modifier: float) -> void:
 
 func is_slowed() -> bool:
 	return SPEED == DEFAULT_SPEED
+
+func freeze():
+	%FreezeCircle.value = 0
+	pause_player()
+	%FreezeTimer.start()
+	%Ice.show()
+	%FreezeCircle.show()
+	%AnimationTree["parameters/Blend2/blend_amount"] = 1
+	await %FreezeTimer.timeout
+	%Ice.hide()
+	%FreezeCircle.hide()
+	%AnimationTree["parameters/Blend2/blend_amount"] = 0
+	unpause_player()
 
 func pause_player() -> void:
 	SPEED = 0

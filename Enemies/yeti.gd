@@ -85,5 +85,7 @@ func death():
 	await animation_player.animation_finished
 	%Yeti.visible = false
 	frost.emitting = true
+	Game.player.freeze()
+	%FreezeNoise.play(.25)
 	await frost.finished
 	queue_free()

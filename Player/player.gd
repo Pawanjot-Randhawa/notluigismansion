@@ -40,9 +40,11 @@ func _physics_process(delta: float) -> void:
 
 func swap_cam_to_player(value:bool):
 	if value:
+		unpause_player()
 		%Camera3D.make_current()
 		%mesh.visible = true
 	else:
+		pause_player()
 		%mesh.visible = false
 
 func get_movement_speed() -> float:
@@ -62,3 +64,9 @@ func slow_movement_by(modifier: float) -> void:
 
 func is_slowed() -> bool:
 	return SPEED == DEFAULT_SPEED
+
+func pause_player() -> void:
+	SPEED = 0
+
+func unpause_player() -> void:
+	SPEED = DEFAULT_SPEED

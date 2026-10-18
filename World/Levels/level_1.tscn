@@ -16,6 +16,7 @@
 [ext_resource type="Script" uid="uid://c438s1synxcuq" path="res://Scripts/roof_system.gd" id="13_wpktf"]
 [ext_resource type="PackedScene" uid="uid://cmkrsvrp8y6df" path="res://Enemies/wizard.tscn" id="14_80xpb"]
 [ext_resource type="PackedScene" uid="uid://1qowhc74nhaf" path="res://Enemies/yeti.tscn" id="15_8hpvr"]
+[ext_resource type="PackedScene" uid="uid://c0f4hd1gj27v4" path="res://Enemies/green_blob.tscn" id="16_6tjya"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_veaet"]
 size = Vector3(5.7795105, 1.2489072, 4.050598)
@@ -486,13 +487,42 @@ script = ExtResource("13_wpktf")
 
 [node name="Enemies" type="Node3D" parent="." unique_id=1901226641]
 
+[node name="GreenBlob3" parent="Enemies" unique_id=487428178 node_paths=PackedStringArray("markers") instance=ExtResource("16_6tjya")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5029541, 0)
+markers = [NodePath("../SlimeRoamPoints/Marker3D"), NodePath("../SlimeRoamPoints/Marker3D2")]
+
 [node name="Wizard" parent="Enemies" unique_id=748103471 instance=ExtResource("14_80xpb")]
 transform = Transform3D(0.75077575, 0, -0.66055715, 0, 1, 0, 0.66055715, 0, 0.75077575, -5.8115973, 0.5048828, 1.7352663)
 
 [node name="SlimeRoamPoints" type="Node3D" parent="Enemies" unique_id=896779908]
+
+[node name="Marker3D" type="Marker3D" parent="Enemies/SlimeRoamPoints" unique_id=1388179456]
+
+[node name="Marker3D2" type="Marker3D" parent="Enemies/SlimeRoamPoints" unique_id=2107604508]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.153428, 0, 0)
+
+[node name="Marker3D3" type="Marker3D" parent="Enemies/SlimeRoamPoints" unique_id=1484737063]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.586194, 0, -3.2880213)
+
+[node name="Marker3D4" type="Marker3D" parent="Enemies/SlimeRoamPoints" unique_id=729791914]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.586194, 0, -8.03838)
+
+[node name="Marker3D5" type="Marker3D" parent="Enemies/SlimeRoamPoints" unique_id=954024421]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0745144, 0, -8.03838)
+
+[node name="Marker3D6" type="Marker3D" parent="Enemies/SlimeRoamPoints" unique_id=2031759651]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0745144, 0, -2.4542904)
 
 [node name="Wizard2" parent="Enemies" unique_id=1251686412 instance=ExtResource("14_80xpb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.7040434, 0.5048828, -6.1451073)
 
 [node name="Yeti" parent="Enemies" unique_id=1393895750 instance=ExtResource("15_8hpvr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.975574, 0.83593774, -1.9268613)
+
+[node name="GreenBlob" parent="Enemies" unique_id=116130242 node_paths=PackedStringArray("markers") instance=ExtResource("16_6tjya")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5029541, -2.8975155)
+markers = [NodePath("../SlimeRoamPoints/Marker3D5"), NodePath("../SlimeRoamPoints/Marker3D6")]
+
+[node name="GreenBlob2" parent="Enemies" unique_id=1724401435 node_paths=PackedStringArray("markers") instance=ExtResource("16_6tjya")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.616762, 0.5029541, -2.9465437)
+markers = [NodePath("../SlimeRoamPoints/Marker3D4"), NodePath("../SlimeRoamPoints/Marker3D3")]

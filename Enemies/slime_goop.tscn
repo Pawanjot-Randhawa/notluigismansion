@@ -2,6 +2,10 @@
 
 [ext_resource type="Script" uid="uid://b8bk5iiidc3fu" path="res://Enemies/slime_goop.gd" id="1_yab3k"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_btcbx"]
+transparency = 1
+albedo_color = Color(0.23137255, 0.44313726, 0, 0.61960787)
+
 [sub_resource type="BoxMesh" id="BoxMesh_veaet"]
 size = Vector3(1, 0.001, 1)
 
@@ -12,6 +16,7 @@ size = Vector3(1, 0.533, 1)
 script = ExtResource("1_yab3k")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=564899501]
+material_override = SubResource("StandardMaterial3D_btcbx")
 mesh = SubResource("BoxMesh_veaet")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=75513706]

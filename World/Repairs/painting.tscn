@@ -13,7 +13,7 @@ size = Vector3(0.8791504, 1.112793, 0.06542969)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_d0iu3"]
 height = 2.2167969
-radius = 4.0
+radius = 2.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_onqs7"]
 transparency = 1
@@ -22,7 +22,11 @@ albedo_color = Color(0.19607843, 0.6039216, 0.39215687, 0.6901961)
 [sub_resource type="BoxMesh" id="BoxMesh_d0iu3"]
 size = Vector3(0.9316406, 1.1035156, 0.07873535)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6h3eu"]
+billboard_mode = 1
+
 [sub_resource type="QuadMesh" id="QuadMesh_qvykn"]
+material = SubResource("StandardMaterial3D_6h3eu")
 size = Vector2(0.1, 0.1)
 
 [sub_resource type="Gradient" id="Gradient_pu6vl"]

@@ -15,7 +15,7 @@ radius = 0.18701172
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_onqs7"]
 height = 1.5
-radius = 3.0
+radius = 2.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_d0iu3"]
 shader = ExtResource("5_7fe7m")
@@ -31,7 +31,11 @@ shader_parameter/width_in = 0.68
 shader_parameter/width_out = 0.95
 shader_parameter/border_width = 0.03
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4ldjl"]
+billboard_mode = 1
+
 [sub_resource type="QuadMesh" id="QuadMesh_qvykn"]
+material = SubResource("StandardMaterial3D_4ldjl")
 size = Vector2(0.1, 0.1)
 
 [sub_resource type="Gradient" id="Gradient_pu6vl"]

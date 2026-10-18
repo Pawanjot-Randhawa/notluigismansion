@@ -53,7 +53,7 @@ _data = {
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_d0iu3"]
 height = 1.2779541
-radius = 5.0
+radius = 2.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d0iu3"]
 atlas = ExtResource("6_0105r")
@@ -63,7 +63,11 @@ region = Rect2(656, 1296, 96, 96)
 atlas = ExtResource("7_oniua")
 region = Rect2(400, 528, 96.39, 96)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_drcd0"]
+billboard_mode = 1
+
 [sub_resource type="QuadMesh" id="QuadMesh_wde3q"]
+material = SubResource("StandardMaterial3D_drcd0")
 size = Vector2(0.1, 0.1)
 
 [sub_resource type="Gradient" id="Gradient_0105r"]

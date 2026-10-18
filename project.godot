@@ -15,10 +15,18 @@ run/main_scene="uid://cufp6fh8f7yao"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="uid://dawk3hfmblpor"
+
 [autoload]
 
 Utilities="*uid://dbctm3bhkvc28"
 Game="*uid://b2yutfsk28oym"
+
+[debug]
+
+shapes/collision/shape_color=Color(0.8235294, 0, 0.9647059, 1)
 
 [display]
 

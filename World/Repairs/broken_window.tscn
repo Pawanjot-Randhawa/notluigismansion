@@ -13,7 +13,11 @@ radius = 2.0
 [sub_resource type="BoxShape3D" id="BoxShape3D_d0iu3"]
 size = Vector3(1.1025391, 1.8730469, 0.19335938)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_icp2x"]
+billboard_mode = 1
+
 [sub_resource type="QuadMesh" id="QuadMesh_053f2"]
+material = SubResource("StandardMaterial3D_icp2x")
 size = Vector2(0.1, 0.1)
 
 [sub_resource type="Gradient" id="Gradient_c6qkh"]

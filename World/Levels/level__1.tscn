@@ -4,11 +4,13 @@
 [ext_resource type="PackedScene" uid="uid://dl4chch71jslm" path="res://World/BuildingBlocks/wall.tscn" id="3_jpw8q"]
 [ext_resource type="PackedScene" uid="uid://d18loxxaj15wj" path="res://World/BuildingBlocks/window_wall.tscn" id="4_tvh4v"]
 [ext_resource type="Texture2D" uid="uid://dvlqxp5a3nemc" path="res://assets/Pack/textures/parquet_oak.png" id="5_te8qg"]
+[ext_resource type="Script" uid="uid://bf1ngrgeq0eyw" path="res://Scripts/room.gd" id="6_bl2f0"]
 [ext_resource type="PackedScene" uid="uid://cov5ryq4dmcf7" path="res://World/BuildingBlocks/post.tscn" id="6_bxn2l"]
 [ext_resource type="PackedScene" uid="uid://l3vvso2ybssc" path="res://World/Repairs/broken_armour.tscn" id="7_l458m"]
 [ext_resource type="PackedScene" uid="uid://benwnts2tp5v" path="res://World/Repairs/broken_window.tscn" id="8_gvhfn"]
 [ext_resource type="PackedScene" uid="uid://cg074mkqkgmbj" path="res://World/Repairs/fireplace.tscn" id="9_hpmgj"]
 [ext_resource type="PackedScene" uid="uid://wt8scvk53sxm" path="res://World/Repairs/candle_stand.tscn" id="10_t6r4a"]
+[ext_resource type="Texture2D" uid="uid://bbqkln2la3fik" path="res://assets/Pack/textures/damask.png" id="11_drcd0"]
 [ext_resource type="PackedScene" uid="uid://cm6rbh3wawjb4" path="res://World/Repairs/painting.tscn" id="11_krtcv"]
 [ext_resource type="Script" uid="uid://c438s1synxcuq" path="res://Scripts/roof_system.gd" id="13_seftt"]
 [ext_resource type="PackedScene" uid="uid://cmkrsvrp8y6df" path="res://Enemies/wizard.tscn" id="14_su5nm"]
@@ -24,6 +26,28 @@ agent_radius = 0.25
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1tbgd"]
 albedo_texture = ExtResource("5_te8qg")
 uv1_triplanar = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_veaet"]
+size = Vector3(5.6574707, 1, 4.009491)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hudci"]
+size = Vector3(2.034668, 1, 8.222656)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7bkds"]
+size = Vector3(3.6661377, 1, 1.8178711)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bl2f0"]
+albedo_texture = ExtResource("11_drcd0")
+uv1_scale = Vector3(8, 8, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_jpw8q"]
+size = Vector3(5.687744, -0.005, 4.1367188)
+
+[sub_resource type="BoxMesh" id="BoxMesh_tvh4v"]
+size = Vector3(2.1481934, -0.005, 8.322754)
+
+[sub_resource type="BoxMesh" id="BoxMesh_te8qg"]
+size = Vector3(3.6810608, -0.005, 1.9525146)
 
 [node name="level_-1" type="Node3D" unique_id=1267759495]
 
@@ -151,6 +175,35 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.1000004, -0.0003490448, 5.
 [node name="Post8" parent="NavigationRegion3D/Posts" unique_id=1084006993 instance=ExtResource("6_bxn2l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9000006, -0.0003490448, -3.1999998)
 
+[node name="Rooms" type="Node3D" parent="NavigationRegion3D" unique_id=1544922039]
+
+[node name="A" type="Area3D" parent="NavigationRegion3D/Rooms" unique_id=1222348195 node_paths=PackedStringArray("roof")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.0542014)
+script = ExtResource("6_bl2f0")
+roof = NodePath("../../../Roofs/A")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Rooms/A" unique_id=244564685]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9779053, 1, 0.061050415)
+shape = SubResource("BoxShape3D_veaet")
+
+[node name="B" type="Area3D" parent="NavigationRegion3D/Rooms" unique_id=1417578644 node_paths=PackedStringArray("roof")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.3642964, 0, 0)
+script = ExtResource("6_bl2f0")
+roof = NodePath("../../../Roofs/B")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Rooms/B" unique_id=190972823]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.34692383, 1, 0.9980469)
+shape = SubResource("BoxShape3D_hudci")
+
+[node name="C" type="Area3D" parent="NavigationRegion3D/Rooms" unique_id=1365011663 node_paths=PackedStringArray("roof")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.144213)
+script = ExtResource("6_bl2f0")
+roof = NodePath("../../../Roofs/C")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Rooms/C" unique_id=1440434053]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.020935, 1, -0.064697266)
+shape = SubResource("BoxShape3D_7bkds")
+
 [node name="Repairs" type="Node3D" parent="." unique_id=267128175]
 
 [node name="BrokenArmour" parent="Repairs" unique_id=1046556376 instance=ExtResource("7_l458m")]
@@ -169,6 +222,22 @@ transform = Transform3D(0.49999997, 0, 0.86602545, 0, 1, 0, -0.86602545, 0, 0.49
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -6.2626204, 0.50249386, 5.071562)
 
 [node name="Roofs" type="Node3D" parent="." unique_id=1234352904]
+visible = false
+
+[node name="A" type="MeshInstance3D" parent="Roofs" unique_id=781732547]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9937804, 3.528004, 3.1311617)
+material_override = SubResource("StandardMaterial3D_bl2f0")
+mesh = SubResource("BoxMesh_jpw8q")
+
+[node name="B" type="MeshInstance3D" parent="Roofs" unique_id=539566776]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.994005, 3.528004, 1.0381441)
+material_override = SubResource("StandardMaterial3D_bl2f0")
+mesh = SubResource("BoxMesh_tvh4v")
+
+[node name="C" type="MeshInstance3D" parent="Roofs" unique_id=66503673]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.016226, 3.528004, -2.1981716)
+material_override = SubResource("StandardMaterial3D_bl2f0")
+mesh = SubResource("BoxMesh_te8qg")
 
 [node name="RoofSystem" type="Node" parent="." unique_id=1891820931]
 script = ExtResource("13_seftt")
@@ -187,7 +256,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.684387, 0.7539046, 1.83758
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.39105773, 0.7539046, 1.8375831)
 
 [node name="Yeti" parent="Enemies" unique_id=1393895750 instance=ExtResource("15_q3h2w")]
-transform = Transform3D(0.13653587, 0, -0.99063516, 0, 1, 0, 0.99063516, 0, 0.13653587, -0.24610323, 0.8359374, -2.5952544)
+transform = Transform3D(0.13653587, 0, -0.99063516, 0, 1, 0, 0.99063516, 0, 0.13653587, -0.5062444, 0.8359375, -2.1862993)
 
 [node name="Wizard" parent="Enemies" unique_id=748103471 instance=ExtResource("14_su5nm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.530617, 0.5048828, -2.5031407)

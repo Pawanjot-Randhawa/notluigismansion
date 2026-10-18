@@ -8,23 +8,28 @@ const SPEED = 100
 @onready var frost: CPUParticles3D = $Frost
 
 
-
-var idle:bool = true
-var chase: bool = false
+var in_range:bool = false
+var chase:bool = false
 var hit:bool = false
+var spawn:Vector3
+
+func _ready() -> void:
+	spawn = position
 
 func _physics_process(delta: float) -> void:
 	if hit:
 		return
+	if in_range:
+		if check_line_of_sight():
+			chase = true
 	if chase:
 		navigation_agent_3d.target_position = Game.player.position
 		look_at(Game.player.position, Vector3.UP, true)
 		velocity = direction_to_player() * delta
 		if animation_player.current_animation != "Walk":
 			animation_player.play("Walk")
-	elif idle:
+	else:
 		velocity = Vector3.ZERO
-	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -62,13 +67,13 @@ func check_line_of_sight() -> bool:
 
 func _on_trigger_zone_body_entered(body: Node3D) -> void:
 	if body is Player:
-		chase = check_line_of_sight()
+		in_range = true
 
 
 func _on_trigger_zone_body_exited(body: Node3D) -> void:
 	if body is Player:
+		in_range = false
 		chase = false
-		idle = true
 
 
 func _on_navigation_agent_3d_target_reached() -> void:
@@ -76,9 +81,7 @@ func _on_navigation_agent_3d_target_reached() -> void:
 
 func death():
 	hit = true
-	chase = false
-	idle = false
-	animation_player.play("Dance")
+	animation_player.play("Bite_Front")
 	await animation_player.animation_finished
 	%Yeti.visible = false
 	frost.emitting = true

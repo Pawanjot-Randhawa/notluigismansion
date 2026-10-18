@@ -26,7 +26,7 @@ script = ExtResource("1_qxm8f")
 [node name="Yeti" parent="." unique_id=1849694085 instance=ExtResource("1_waijt")]
 unique_name_in_owner = true
 
-[node name="Skeleton3D" parent="Yeti/CharacterArmature" parent_id_path=PackedInt32Array(1849694085, 953820282) index="0" unique_id=669554825]
+[node name="Skeleton3D" parent="Yeti/CharacterArmature" parent_id_path=PackedInt32Array(1849694085, 1552450046) index="0" unique_id=2080768042]
 bones/1/position = Vector3(0, 0.0966387, 0)
 bones/1/rotation = Quaternion(0, 0, 0, 1)
 bones/2/rotation = Quaternion(0, 0, 0, 1)
@@ -37,6 +37,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2441695, 0)
 shape = SubResource("SphereShape3D_d0iu3")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1648149706]
+target_desired_distance = 0.7
 debug_enabled = true
 
 [node name="TriggerZone" type="Area3D" parent="." unique_id=1403849396]

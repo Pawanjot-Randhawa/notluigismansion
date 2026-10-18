@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://themtq0xx5ly" path="res://assets/Pack/glb/wall_damask.glb" id="1_aqtke"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_d0iu3"]
-size = Vector3(2.0117188, 2.989502, 0.17675781)
+size = Vector3(2.0117188, 2.989502, 0.25976563)
 
 [node name="Wall" type="StaticBody3D" unique_id=1369361470]
 collision_layer = 2

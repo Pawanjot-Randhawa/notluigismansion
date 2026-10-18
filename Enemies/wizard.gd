@@ -12,30 +12,32 @@ var in_portal:bool = false
 @onready var portal: AnimatedSprite3D = $Portal
 
 func _ready() -> void:
-	portal.connect("animation_finished", attack_end)
+	portal.connect("frame_changed", attack_end)
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	
-	if in_range:
+	if in_range and check_line_of_sight():
+		look_at(Game.player.position, Vector3.UP, true)
 		if can_attack:
-			look_at(Game.player.position, Vector3.UP, true)
-			if check_line_of_sight():
-				attack()
+			attack()
 
 func attack():
 	print("Attacking")
 	can_attack = false
 	portal.global_position = Game.player.global_position
 	portal.play("default")
+	%StartSound.play()
 
 func attack_end():
-	print("Attack over")
-	if in_portal:
-		print("Player hit")
-		Game.player.position = Game.spawn.position
+	if portal.frame == 24:
+		if in_portal:
+			Game.player.position = Game.spawn.position
+			portal.global_position = Game.player.global_position
+		%StartSound.stop()
+		%SpellSound.play()
 	%AttackCooldown.start()
 
 func check_line_of_sight() -> bool:

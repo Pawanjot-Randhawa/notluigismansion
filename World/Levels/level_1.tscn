@@ -378,6 +378,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.9, 0, -1.1999998)
 [node name="Post16" parent="NavigationRegion3D/Posts" unique_id=279979415 instance=ExtResource("6_epbj0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1, 0, -5.2)
 
+[node name="Post18" parent="NavigationRegion3D/Posts" unique_id=861883901 instance=ExtResource("6_epbj0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.9, 0.0014209747, -5.2)
+
 [node name="Post15" parent="NavigationRegion3D/Posts" unique_id=1880273195 instance=ExtResource("6_epbj0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.100001, 0, -9.2)
 
@@ -515,7 +518,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0745144, 0, -8.03838)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0745144, 0, -2.4542904)
 
 [node name="Wizard2" parent="Enemies" unique_id=1251686412 instance=ExtResource("14_80xpb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.7040434, 0.5048828, -6.1451073)
+transform = Transform3D(-0.37823328, 0, -0.9257103, 0, 1, 0, 0.9257103, 0, -0.37823328, -5.8511095, 0.5048828, -6.1451073)
 
 [node name="Yeti" parent="Enemies" unique_id=1393895750 instance=ExtResource("15_8hpvr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.975574, 0.83593774, -1.9268613)

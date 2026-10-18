@@ -5,16 +5,16 @@
 [ext_resource type="PackedScene" uid="uid://lm62inqne543" path="res://assets/Pack/glb/door_panel.glb" id="2_anc3d"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_d0iu3"]
-size = Vector3(1.9943848, 0.77075195, 0.18945313)
+size = Vector3(1.9943848, 0.77075195, 0.27441406)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_onqs7"]
-size = Vector3(0.5024414, 2.9906616, 0.20678711)
+size = Vector3(0.5024414, 2.9906616, 0.28027344)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_i7we0"]
-size = Vector3(0.51220703, 3.005127, 0.19702148)
+size = Vector3(0.51220703, 3.005127, 0.28027344)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_oahh7"]
-size = Vector3(1, 2.2181091, 0.18725586)
+size = Vector3(1, 2.2181091, 0.27441406)
 
 [sub_resource type="BoxMesh" id="BoxMesh_d0iu3"]
 

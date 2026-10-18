@@ -35,6 +35,7 @@ func animation_order():
 		animation_player.play("spear")
 	else:
 		%FinishSound.play()
+		Game.repair_compelted.emit()
 		animation_player.play("pass")
 		await animation_player.animation_finished
 		Game.player.swap_cam_to_player(true)
@@ -43,7 +44,6 @@ func success():
 	animation_player.pause()
 	count += 1
 	%CorrectSound.play(.25)
-	Game.repair_compelted.emit()
 	animation_order()
 
 func fail():

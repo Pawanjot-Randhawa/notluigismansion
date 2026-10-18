@@ -438,6 +438,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.937298, 0.50249386, -1.099
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.84004956, 0.5186622, -4.322589)
 
 [node name="Roofs" type="Node3D" parent="." unique_id=790708996]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5002036, 0)
+visible = false
 
 [node name="A" type="MeshInstance3D" parent="Roofs" unique_id=528437863]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.104254, 3.02693, 3.1311617)

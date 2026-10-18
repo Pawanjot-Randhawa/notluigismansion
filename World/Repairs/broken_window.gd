@@ -3,7 +3,7 @@ extends Node3D
 var is_open:bool = false
 
 @onready var animation_player: AnimationPlayer = $window_tall2/AnimationPlayer
-@onready var progress_bar: ProgressBar = $CanvasLayer/ProgressBar
+@onready var progress_bar: ProgressBar = $CanvasLayer/UI/ProgressBar
 
 @export var mash_power: float = 0.12
 @export var friction_decay: float = 0.25
@@ -35,7 +35,7 @@ func _process(delta: float) -> void:
 
 func exit():
 	is_active = false 
-	progress_bar.hide()
+	%UI.hide()
 	await get_tree().create_timer(.5).timeout
 	%Pass.restart()
 	%FinalSound.play()
@@ -49,4 +49,4 @@ func _on_interactable_interact() -> void:
 	Game.player.swap_cam_to_player(false)
 	%Interactable.monitoring = false
 	is_active = true
-	progress_bar.show()
+	%UI.show()

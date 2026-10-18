@@ -43,10 +43,12 @@ func _physics_process(delta: float) -> void:
 
 func swap_cam_to_player(value:bool):
 	if value:
+		Game.can_hit_player = true
 		unpause_player()
 		%Camera3D.make_current()
 		%mesh.visible = true
 	else:
+		Game.can_hit_player = false
 		pause_player()
 		%mesh.visible = false
 

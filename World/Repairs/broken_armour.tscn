@@ -202,7 +202,7 @@ tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.97, 1.03),
+"times": PackedFloat32Array(0.97, 1.04),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [],
@@ -340,7 +340,7 @@ tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.92, 0.95),
+"times": PackedFloat32Array(0.91, 0.98),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [],
@@ -479,24 +479,31 @@ transparency = 1
 albedo_color = Color(0.44313726, 0.6862745, 0.33333334, 0.4509804)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_i7we0"]
-top_radius = 0.06640625
-bottom_radius = 0.06640625
+top_radius = 0.09375
+bottom_radius = 0.09375
 height = 0.4822754
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_dv2o8"]
-top_radius = 0.16845703
-bottom_radius = 0.16845703
+top_radius = 0.20751953
+bottom_radius = 0.20751953
 height = 0.910083
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_3cm1o"]
-top_radius = 0.12548828
-bottom_radius = 0.12548828
+top_radius = 0.15332031
+bottom_radius = 0.15332031
 height = 0.219281
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_v0gnq"]
-top_radius = 0.05029297
-bottom_radius = 0.05029297
+top_radius = 0.06201172
+bottom_radius = 0.06201172
 height = 1.9501221
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_v0gnq"]
+load_path = "res://.godot/imported/keyboard-&-mouse_sheet_double.png-79c54498398a20f14fd23f343bbc1277.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_agmxx"]
+atlas = SubResource("CompressedTexture2D_v0gnq")
+region = Rect2(656, 1296, 96, 96)
 
 [node name="BrokenArmour" type="StaticBody3D" unique_id=1046556376]
 collision_layer = 2
@@ -530,7 +537,7 @@ transform = Transform3D(-2.9178947e-08, 0.6675365, 0.7445771, -1, -4.371139e-08,
 transform = Transform3D(4.358593e-08, -0.9971298, -0.07571064, -1, -4.3711385e-08, 1.0065924e-15, -3.3094185e-09, 0.07571064, -0.9971298, 0.14636302, 0, 0.42374554)
 
 [node name="helmet" parent="ArmourPieces" unique_id=1917199885 instance=ExtResource("9_d45ym")]
-transform = Transform3D(0.9999983, 0.0016054653, 0, -0.0016054653, 0.9999983, 0, 0, 0, 1, -2.2158065, 0.18236053, 0.028902493)
+transform = Transform3D(0.9999982, 0.0016054652, 0, -0.0016054652, 0.9999982, 0, 0, 0, 1, -2.2158065, 0.18236053, 0.028902493)
 
 [node name="spear" parent="ArmourPieces" unique_id=1870399582 instance=ExtResource("10_y8nr5")]
 transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1, -5.9604645e-08, 0, 0)
@@ -569,36 +576,35 @@ color_initial_ramp = SubResource("Gradient_pu6vl")
 
 [node name="H1" type="MeshInstance3D" parent="Hints" unique_id=513789208]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11037207, 0.36018655, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.09535849, 0.36018655, 0)
 visible = false
 material_override = SubResource("StandardMaterial3D_onqs7")
 mesh = SubResource("CylinderMesh_i7we0")
 
 [node name="H2" type="MeshInstance3D" parent="Hints" unique_id=1923583115]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.078662604, 0.36018655, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10868952, 0.36018655, 0)
 visible = false
 material_override = SubResource("StandardMaterial3D_onqs7")
 mesh = SubResource("CylinderMesh_i7we0")
 
 [node name="H3" type="MeshInstance3D" parent="Hints" unique_id=710687955]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.013475627, 1.0542477, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0036825165, 1.0542477, 0)
 visible = false
 material_override = SubResource("StandardMaterial3D_onqs7")
 mesh = SubResource("CylinderMesh_dv2o8")
 
 [node name="H4" type="MeshInstance3D" parent="Hints" unique_id=1703201149]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0017545521, 1.6467782, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.011406094, 1.6467782, 0)
 visible = false
 material_override = SubResource("StandardMaterial3D_onqs7")
 mesh = SubResource("CylinderMesh_3cm1o")
 
 [node name="H5" type="MeshInstance3D" parent="Hints" unique_id=851237709]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.092241764, 1.0941099, 0.20080808)
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.082317114, 1.0941099, 0.20080808)
 material_override = SubResource("StandardMaterial3D_onqs7")
 mesh = SubResource("CylinderMesh_v0gnq")
 
@@ -618,5 +624,21 @@ bus = &"Sounds"
 unique_name_in_owner = true
 stream = ExtResource("12_v0gnq")
 volume_db = -8.0
+
+[node name="UI" type="Control" parent="." unique_id=140414479]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="UI" unique_id=1974520555]
+layout_mode = 0
+offset_left = 955.0
+offset_top = 268.0
+offset_right = 1051.0
+offset_bottom = 364.0
+texture = SubResource("AtlasTexture_agmxx")
 
 [connection signal="interact" from="Interactable" to="." method="_on_interactable_interact"]

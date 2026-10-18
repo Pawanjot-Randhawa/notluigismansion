@@ -15,6 +15,24 @@ size = Vector3(0.8791504, 1.112793, 0.06542969)
 height = 2.2167969
 radius = 2.0
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6h3eu"]
+load_path = "res://.godot/imported/keyboard-&-mouse_sheet_double.png-79c54498398a20f14fd23f343bbc1277.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kcb87"]
+atlas = SubResource("CompressedTexture2D_6h3eu")
+region = Rect2(1168, 656, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6h3eu"]
+atlas = SubResource("CompressedTexture2D_6h3eu")
+region = Rect2(784, 1568, 96, 64)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5blw6"]
+load_path = "res://.godot/imported/keyboard-&-mouse_sheet_double.png-79c54498398a20f14fd23f343bbc1277.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s7lva"]
+atlas = SubResource("CompressedTexture2D_5blw6")
+region = Rect2(656, 1296, 96, 96)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_onqs7"]
 transparency = 1
 albedo_color = Color(0.19607843, 0.6039216, 0.39215687, 0.6901961)
@@ -75,6 +93,59 @@ visible = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.1580677, 0)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1170096761]
+
+[node name="UI" type="Control" parent="CanvasLayer" unique_id=1500733099]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI" unique_id=413068823]
+layout_mode = 1
+offset_left = 400.0
+offset_top = 120.0
+offset_right = 496.0
+offset_bottom = 216.0
+offset_transform_enabled = true
+texture = SubResource("AtlasTexture_kcb87")
+stretch_mode = 5
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/UI" unique_id=695188073]
+layout_mode = 1
+offset_left = 400.0
+offset_top = 179.0
+offset_right = 496.0
+offset_bottom = 275.0
+offset_transform_enabled = true
+texture = SubResource("AtlasTexture_6h3eu")
+stretch_mode = 5
+
+[node name="TextureRect4" type="TextureRect" parent="CanvasLayer/UI" unique_id=784465600]
+layout_mode = 1
+offset_left = 896.0
+offset_top = 276.0
+offset_right = 992.0
+offset_bottom = 372.0
+rotation = -3.1415927
+offset_transform_enabled = true
+texture = SubResource("AtlasTexture_6h3eu")
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/UI" unique_id=1711018300]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -480.0
+offset_top = 120.0
+offset_right = -384.0
+offset_bottom = 216.0
+grow_horizontal = 0
+texture = SubResource("AtlasTexture_s7lva")
 
 [node name="Hint" type="MeshInstance3D" parent="." unique_id=858518203]
 unique_name_in_owner = true

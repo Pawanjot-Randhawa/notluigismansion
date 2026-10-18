@@ -80,10 +80,10 @@ unique_name_in_owner = true
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
 [node name="Skeleton3D" parent="mesh/character-male-c" parent_id_path=PackedInt32Array(528091184, 1548646320) index="0" unique_id=1682099275]
-bones/3/rotation = Quaternion(0.007581029, 0, 0, 0.9999713)
-bones/4/rotation = Quaternion(0, 0, -0.36157417, 0.93234336)
-bones/5/rotation = Quaternion(0, 0, 0.36157417, 0.93234336)
-bones/6/rotation = Quaternion(0, -0.007581029, 0, 0.9999713)
+bones/3/rotation = Quaternion(-0.0049651014, 0, 0, 0.99998766)
+bones/4/rotation = Quaternion(0, 0, -0.36887997, 0.92947704)
+bones/5/rotation = Quaternion(0, 0, 0.36887997, 0.92947704)
+bones/6/rotation = Quaternion(0, 0.0049651014, 0, 0.99998766)
 
 [node name="AnimationTree" type="AnimationTree" parent="." unique_id=882075530]
 unique_name_in_owner = true

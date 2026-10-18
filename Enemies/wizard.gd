@@ -6,7 +6,7 @@ const JUMP_VELOCITY = 4.5
 
 var in_range:bool = false
 var can_attack:bool = true
-
+var attack_done:bool = true
 var in_portal:bool = false
 
 @onready var portal: AnimatedSprite3D = $Portal
@@ -19,26 +19,30 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	
-	if in_range and check_line_of_sight():
-		look_at(Game.player.position, Vector3.UP, true)
+	if in_range and check_line_of_sight() and Game.can_hit_player:
+		if attack_done:
+			look_at(Game.player.position, Vector3.UP, true)
 		if can_attack:
 			attack()
 
 func attack():
 	print("Attacking")
 	can_attack = false
+	attack_done = false
 	portal.global_position = Game.player.global_position
 	portal.play("default")
 	%StartSound.play()
 
 func attack_end():
-	if portal.frame == 24:
-		if in_portal:
+	if portal.frame == 27:
+		if in_portal and Game.can_hit_player:
 			Game.player.position = Game.spawn.position
 			portal.global_position = Game.player.global_position
 		%StartSound.stop()
 		%SpellSound.play()
-	%AttackCooldown.start()
+	if portal.frame == 47:
+		%AttackCooldown.start()
+		attack_done = true
 
 func check_line_of_sight() -> bool:
 	var space_state = get_world_3d().direct_space_state

@@ -35,6 +35,7 @@ func animation_order():
 		animation_player.play("spear")
 	else:
 		%FinishSound.play()
+		%UI.hide()
 		Game.repair_compelted.emit()
 		animation_player.play("pass")
 		await animation_player.animation_finished
@@ -55,3 +56,4 @@ func _on_interactable_interact() -> void:
 	Game.player.swap_cam_to_player(false)
 	animation_order()
 	%Interactable.monitoring = false
+	%UI.show()

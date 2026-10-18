@@ -32,6 +32,7 @@ func _input(event: InputEvent) -> void:
 
 func exit():
 	%Hint.hide()
+	%UI.hide()
 	%Pivot.hide()
 	%"good-pic".show()
 	await get_tree().create_timer(.5).timeout
@@ -50,4 +51,5 @@ func _on_interactable_interact() -> void:
 	not_done = true
 	%Hint.show()
 	%Pivot.show()
+	%UI.show()
 	%"ground-pic".hide()

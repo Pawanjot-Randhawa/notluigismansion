@@ -392,8 +392,6 @@ pixel_size = 0.005
 axis = 1
 billboard = 2
 sprite_frames = SubResource("SpriteFrames_onqs7")
-frame = 47
-frame_progress = 1.0
 
 [node name="HitZone" type="Area3D" parent="Portal" unique_id=1587788964]
 collision_layer = 4

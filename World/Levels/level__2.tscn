@@ -447,8 +447,14 @@ transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, -9, 
 [node name="Yeti" parent="Enemies" unique_id=1393895750 instance=ExtResource("11_qoq86")]
 transform = Transform3D(-0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, -0.70710677, -4.2547884, 0.52762985, -5.638071)
 
+[node name="Yeti3" parent="Enemies" unique_id=1812897620 instance=ExtResource("11_qoq86")]
+transform = Transform3D(0.8660253, 0, 0.49999997, 0, 1, 0, -0.49999997, 0, 0.8660253, -14.919837, 0.52762985, -8.47808)
+
 [node name="Yeti2" parent="Enemies" unique_id=1605222318 instance=ExtResource("11_qoq86")]
 transform = Transform3D(-0.63820255, 0, -0.7698683, 0, 1, 0, 0.7698683, 0, -0.63820255, 0.19410801, 0.52762985, 4.361929)
+
+[node name="Yeti4" parent="Enemies" unique_id=1187032054 instance=ExtResource("11_qoq86")]
+transform = Transform3D(-0.9925076, 0, 0.12218341, 0, 1, 0, -0.12218341, 0, -0.9925076, -6.309616, 0.52762985, 10.361929)
 
 [node name="Wizard" parent="Enemies" unique_id=748103471 instance=ExtResource("12_utxgb")]
 transform = Transform3D(0.91424507, 0, -0.4051616, 0, 1, 0, 0.4051616, 0, 0.91424507, -11.80801, 0.59560704, -8.442783)

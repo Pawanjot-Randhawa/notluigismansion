@@ -13,6 +13,13 @@ radius = 2.0
 [sub_resource type="BoxShape3D" id="BoxShape3D_d0iu3"]
 size = Vector3(1.1025391, 1.8730469, 0.19335938)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_icp2x"]
+load_path = "res://.godot/imported/keyboard-&-mouse_sheet_double.png-79c54498398a20f14fd23f343bbc1277.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lqg7g"]
+atlas = SubResource("CompressedTexture2D_icp2x")
+region = Rect2(656, 1296, 96, 96)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_icp2x"]
 billboard_mode = 1
 
@@ -46,8 +53,16 @@ fov = 45.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=539055918]
 
-[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer" unique_id=505629650]
+[node name="UI" type="Control" parent="CanvasLayer" unique_id=44049178]
+unique_name_in_owner = true
 visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/UI" unique_id=505629650]
+layout_mode = 0
 offset_left = 929.0
 offset_top = 50.0
 offset_right = 953.0
@@ -55,6 +70,14 @@ offset_bottom = 453.0
 fill_mode = 3
 show_percentage = false
 metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI" unique_id=499608994]
+layout_mode = 0
+offset_left = 893.0
+offset_top = 465.0
+offset_right = 989.0
+offset_bottom = 561.0
+texture = SubResource("AtlasTexture_lqg7g")
 
 [node name="Pass" type="CPUParticles3D" parent="." unique_id=602199382]
 unique_name_in_owner = true

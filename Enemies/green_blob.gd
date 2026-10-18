@@ -36,7 +36,6 @@ func _physics_process(_delta: float) -> void:
 	var moved_amount: float = old_position.distance_to(global_position)
 	distance_traveled += moved_amount
 	
-	print("[slime]: distance_traveled: ", distance_traveled)
 	if distance_traveled > step_distance:
 		distance_traveled -= step_distance
 		spawn_goop()

@@ -414,7 +414,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.1, 0, 5.2)
 [node name="Repairs" type="Node3D" parent="." unique_id=1967190252]
 
 [node name="BrokenArmour" parent="Repairs" unique_id=1046556376 instance=ExtResource("7_o3yw6")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -5.531131, 0.49987793, -8.030896)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -6.243658, 0.49987793, -8.030896)
 
 [node name="broken_window" parent="Repairs" unique_id=427125948 instance=ExtResource("8_ln20m")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -7.9959555, 0.5, 5.160028)
@@ -438,7 +438,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.937298, 0.50249386, -1.099
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.84004956, 0.5186622, -4.322589)
 
 [node name="Roofs" type="Node3D" parent="." unique_id=790708996]
-visible = false
 
 [node name="A" type="MeshInstance3D" parent="Roofs" unique_id=528437863]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.104254, 3.02693, 3.1311617)

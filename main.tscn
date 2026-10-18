@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://nbjr6s87grx" path="res://main.gd" id="1_vivmo"]
 [ext_resource type="PackedScene" uid="uid://cm28kwgklc6k4" path="res://World/Levels/level_1.tscn" id="3_h2yge"]
 [ext_resource type="Texture2D" uid="uid://o2i81rluocsl" path="res://assets/Foliage.png" id="4_1bvp3"]
+[ext_resource type="AudioStream" uid="uid://6eme2ie80r3s" path="res://assets/chill-one.mp3" id="5_lquwl"]
 
 [sub_resource type="Environment" id="Environment_grnse"]
 background_mode = 1
@@ -43,3 +44,56 @@ use_collision = true
 collision_layer = 2
 collision_mask = 7
 size = Vector3(50, 1, 50)
+
+[node name="MainUI" type="CanvasLayer" parent="." unique_id=2044305847]
+
+[node name="Control" type="Control" parent="MainUI" unique_id=1072789736]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Time" type="Label" parent="MainUI/Control" unique_id=161485656]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -122.0
+offset_top = 33.0
+offset_right = -61.0
+offset_bottom = 88.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 40
+text = "11:59 PM"
+
+[node name="RepairCount" type="Label" parent="MainUI/Control" unique_id=2109126420]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -118.0
+offset_top = -126.0
+offset_right = -57.0
+offset_bottom = -71.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 40
+text = "0/0"
+
+[node name="TimeTick" type="Timer" parent="." unique_id=711975636]
+wait_time = 0.5
+autostart = true
+
+[node name="MainMusic" type="AudioStreamPlayer" parent="." unique_id=1804781753]
+stream = ExtResource("5_lquwl")
+volume_db = -10.0
+autoplay = true
+bus = &"Music"
+
+[connection signal="timeout" from="TimeTick" to="." method="_on_time_tick_timeout"]

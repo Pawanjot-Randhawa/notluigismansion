@@ -75,6 +75,7 @@ func win_game() -> void:
 	animation_player.play("burn")
 	await get_tree().create_timer(1.25).timeout
 	%CongratsNoise.play()
+	Game.repair_compelted.emit()
 	%Pass.restart()
 	await %Pass.finished
 	await get_tree().create_timer(1).timeout

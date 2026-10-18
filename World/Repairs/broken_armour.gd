@@ -43,6 +43,7 @@ func success():
 	animation_player.pause()
 	count += 1
 	%CorrectSound.play(.25)
+	Game.repair_compelted.emit()
 	animation_order()
 
 func fail():

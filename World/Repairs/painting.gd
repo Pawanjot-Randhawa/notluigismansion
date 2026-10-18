@@ -37,6 +37,7 @@ func exit():
 	await get_tree().create_timer(.5).timeout
 	%Pass.restart()
 	%FinalSound.play()
+	Game.repair_compelted.emit()
 	await %Pass.finished
 	await get_tree().create_timer(.75).timeout
 	Game.player.swap_cam_to_player(true)

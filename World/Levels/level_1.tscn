@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://cm28kwgklc6k4"]
 
+[ext_resource type="Script" uid="uid://dlbmoc5f2wtgm" path="res://World/Levels/level_1.gd" id="1_klmnm"]
 [ext_resource type="PackedScene" uid="uid://c66ipeh0nvq7e" path="res://World/BuildingBlocks/doorway_wall.tscn" id="1_xhtyv"]
 [ext_resource type="Script" uid="uid://bf1ngrgeq0eyw" path="res://Scripts/room.gd" id="2_klmnm"]
 [ext_resource type="PackedScene" uid="uid://dl4chch71jslm" path="res://World/BuildingBlocks/wall.tscn" id="3_avaku"]
@@ -15,7 +16,6 @@
 [ext_resource type="Script" uid="uid://c438s1synxcuq" path="res://Scripts/roof_system.gd" id="13_wpktf"]
 [ext_resource type="PackedScene" uid="uid://cmkrsvrp8y6df" path="res://Enemies/wizard.tscn" id="14_80xpb"]
 [ext_resource type="PackedScene" uid="uid://1qowhc74nhaf" path="res://Enemies/yeti.tscn" id="15_8hpvr"]
-[ext_resource type="PackedScene" uid="uid://c0f4hd1gj27v4" path="res://Enemies/green_blob.tscn" id="16_6tjya"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_veaet"]
 size = Vector3(5.7795105, 1.2489072, 4.050598)
@@ -77,6 +77,7 @@ size = Vector3(3.9055634, -0.005, 8.073594)
 size = Vector3(7.8741684, -0.005, 3.701836)
 
 [node name="level1" type="Node3D" unique_id=2140788766]
+script = ExtResource("1_klmnm")
 
 [node name="Doors" type="Node3D" parent="." unique_id=1766088796]
 
@@ -296,9 +297,6 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.89
 [node name="Wall50" parent="NavigationRegion3D/Walls" unique_id=1435710506 instance=ExtResource("3_avaku")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.9, 0, -2.2999997)
 
-[node name="Wall51" parent="NavigationRegion3D/Walls" unique_id=252401555 instance=ExtResource("3_avaku")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.9, 0, -4.2999997)
-
 [node name="Wall52" parent="NavigationRegion3D/Walls" unique_id=142626189 instance=ExtResource("3_avaku")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.9, 0, -6.2999997)
 
@@ -346,6 +344,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -9.199999)
 
 [node name="WindowWall" parent="NavigationRegion3D/Walls" unique_id=595995456 instance=ExtResource("4_rwg62")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -8, 0, 5.2)
+
+[node name="WindowWall2" parent="NavigationRegion3D/Walls" unique_id=1647335884 instance=ExtResource("4_rwg62")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.9, 0, -4.2999997)
 
 [node name="Floor" type="CSGBox3D" parent="NavigationRegion3D" unique_id=983896441]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.3273067, 0, -2.0050507)
@@ -412,19 +413,28 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.1, 0, 5.2)
 [node name="Repairs" type="Node3D" parent="." unique_id=1967190252]
 
 [node name="BrokenArmour" parent="Repairs" unique_id=1046556376 instance=ExtResource("7_o3yw6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.500001, 0.49987793, -4.85)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -5.531131, 0.49987793, -8.030896)
 
 [node name="broken_window" parent="Repairs" unique_id=427125948 instance=ExtResource("8_ln20m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.9959555, 0.5, 5.2077146)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -7.9959555, 0.5, 5.160028)
 
 [node name="fireplace" parent="Repairs" unique_id=1138728904 instance=ExtResource("9_yen21")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12330681, 0.50039315, -9.09216)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8536904, 0.50039124, -9.107507)
+
+[node name="fireplace2" parent="Repairs" unique_id=450542676 instance=ExtResource("9_yen21")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -14.601659, 0.50039315, 5.106469)
 
 [node name="CandleStand" parent="Repairs" unique_id=1925640068 instance=ExtResource("10_37ceh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.697405, 0.5053711, 4.724191)
 
+[node name="CandleStand2" parent="Repairs" unique_id=730324502 instance=ExtResource("10_37ceh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.0571494, 0.5053711, -2.1007361)
+
 [node name="Painting" parent="Repairs" unique_id=1592485192 instance=ExtResource("11_4tq1i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.570575, 0.50249386, -1.0999998)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.937298, 0.50249386, -1.0999998)
+
+[node name="broken_window2" parent="Repairs" unique_id=1929811513 instance=ExtResource("8_ln20m")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.84004956, 0.5186622, -4.322589)
 
 [node name="Roofs" type="Node3D" parent="." unique_id=790708996]
 visible = false
@@ -479,38 +489,10 @@ script = ExtResource("13_wpktf")
 [node name="Wizard" parent="Enemies" unique_id=748103471 instance=ExtResource("14_80xpb")]
 transform = Transform3D(0.75077575, 0, -0.66055715, 0, 1, 0, 0.66055715, 0, 0.75077575, -5.8115973, 0.5048828, 1.7352663)
 
-[node name="Yeti" parent="Enemies" unique_id=1393895750 instance=ExtResource("15_8hpvr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.325815, 0.4773684, 0)
-
-[node name="GreenBlob" parent="Enemies" unique_id=487428178 node_paths=PackedStringArray("markers") instance=ExtResource("16_6tjya")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0.5029541, -8)
-markers = [NodePath("../SlimeRoamPoints/Marker3D"), NodePath("../SlimeRoamPoints/Marker3D2"), NodePath("../SlimeRoamPoints/Marker3D3"), NodePath("../SlimeRoamPoints/Marker3D4"), NodePath("../SlimeRoamPoints/Marker3D5"), NodePath("../SlimeRoamPoints/Marker3D6"), NodePath("../SlimeRoamPoints/Marker3D7"), NodePath("../SlimeRoamPoints/Marker3D8"), NodePath("../SlimeRoamPoints/Marker3D9")]
-
 [node name="SlimeRoamPoints" type="Node3D" parent="Enemies" unique_id=896779908]
 
-[node name="Marker3D" type="Marker3D" parent="Enemies/SlimeRoamPoints" unique_id=586405858]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -0.20275569)
+[node name="Wizard2" parent="Enemies" unique_id=1251686412 instance=ExtResource("14_80xpb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.7040434, 0.5048828, -6.1451073)
 
-[node name="Marker3D2" type="Marker3D" parent="Enemies/SlimeRoamPoints" unique_id=1648345928]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.492086, 0.5, -0.20275569)
-
-[node name="Marker3D3" type="Marker3D" parent="Enemies/SlimeRoamPoints" unique_id=1840158974]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.053345, 0.5, -0.20275569)
-
-[node name="Marker3D4" type="Marker3D" parent="Enemies/SlimeRoamPoints" unique_id=789088690]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.053345, 0.5, 3.695689)
-
-[node name="Marker3D5" type="Marker3D" parent="Enemies/SlimeRoamPoints" unique_id=712629902]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.391658, 0.5, 3.695689)
-
-[node name="Marker3D6" type="Marker3D" parent="Enemies/SlimeRoamPoints" unique_id=857507885]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0366321, 0.5, 3.695689)
-
-[node name="Marker3D7" type="Marker3D" parent="Enemies/SlimeRoamPoints" unique_id=1606634919]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0366321, 0.5, -6.1021605)
-
-[node name="Marker3D8" type="Marker3D" parent="Enemies/SlimeRoamPoints" unique_id=1705230180]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.717672, 0.5, -8.176811)
-
-[node name="Marker3D9" type="Marker3D" parent="Enemies/SlimeRoamPoints" unique_id=1367284074]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.225517, 0.5, -3.783331)
+[node name="Yeti" parent="Enemies" unique_id=1393895750 instance=ExtResource("15_8hpvr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.975574, 0.83593774, -1.9268613)

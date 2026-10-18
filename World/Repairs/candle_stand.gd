@@ -30,6 +30,7 @@ func qt_animation():
 	if count > 4:
 		%UI.hide()
 		%FinalSound.play()
+		Game.repair_compelted.emit()
 		exit()
 		return
 	%UI.show()

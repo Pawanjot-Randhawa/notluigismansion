@@ -9,7 +9,7 @@ const THREE = preload("uid://vgqraqm4xpnj")
 var time: int = 0:
 	set(value):
 		time = value
-		if time >= 10:
+		if time >= 240:
 			lose()
 var end_time:int = 0
 

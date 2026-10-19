@@ -296,6 +296,38 @@ stream = ExtResource("7_272bh")
 volume_db = -10.0
 bus = &"Music"
 
+[node name="Border" type="Node3D" parent="." unique_id=1659251826]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.69586, 0, 2.3126163)
+visible = false
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Border" unique_id=241123142]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.452814, 2.9645996, -7.15567)
+layers = 3
+use_collision = true
+collision_layer = 3
+size = Vector3(1, 6.929199, 54.90924)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Border" unique_id=943588485]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.377356, 2.9645996, -7.15567)
+layers = 3
+use_collision = true
+collision_layer = 3
+size = Vector3(1, 6.929199, 54.90924)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Border" unique_id=1991512000]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.0490742, 2.9645996, 16.790731)
+layers = 3
+use_collision = true
+collision_layer = 3
+size = Vector3(1, 6.929199, 54.90924)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Border" unique_id=789108592]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.0490742, 2.9645996, -31.68719)
+layers = 3
+use_collision = true
+collision_layer = 3
+size = Vector3(1, 6.929199, 54.90924)
+
 [connection signal="pressed" from="MainUI/Menus/MainMenu/VBoxContainer/Levels" to="." method="_on_levels_pressed"]
 [connection signal="pressed" from="MainUI/Menus/MainMenu/VBoxContainer/Tutoirial" to="." method="_on_tutoirial_pressed"]
 [connection signal="pressed" from="MainUI/Menus/Levels/VBoxContainer/LevelOne" to="." method="_on_level_one_pressed"]

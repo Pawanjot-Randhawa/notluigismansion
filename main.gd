@@ -136,3 +136,13 @@ func _on_retry_pressed() -> void:
 		_on_level_two_pressed()
 	elif current_level == 3:
 		_on_level_three_pressed()
+
+
+func _on_tutoirial_pressed() -> void:
+	%MainMenu.hide()
+	%Tutorial.show()
+
+
+func _on_back_pressed() -> void:
+	%MainMenu.show()
+	%Tutorial.hide()

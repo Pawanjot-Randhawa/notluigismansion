@@ -10,7 +10,7 @@
 
 [sub_resource type="Environment" id="Environment_grnse"]
 background_mode = 1
-background_color = Color(0.49221623, 0.6779775, 0.9496781, 1)
+background_color = Color(0.6920928, 0.35200205, 0.12684077, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lquwl"]
 albedo_texture = ExtResource("4_1bvp3")
@@ -133,15 +133,11 @@ custom_minimum_size = Vector2(200, 80)
 layout_mode = 2
 text = "Levels"
 
-[node name="Practice" type="Button" parent="MainUI/Menus/MainMenu/VBoxContainer" unique_id=1107859050]
+[node name="Tutoirial" type="Button" parent="MainUI/Menus/MainMenu/VBoxContainer" unique_id=1672747773]
 custom_minimum_size = Vector2(200, 80)
 layout_mode = 2
-text = "Practice"
-
-[node name="Credits" type="Button" parent="MainUI/Menus/MainMenu/VBoxContainer" unique_id=2050352225]
-custom_minimum_size = Vector2(200, 80)
-layout_mode = 2
-text = "Credits"
+text = "Tutorial
+"
 
 [node name="Levels" type="Control" parent="MainUI/Menus" unique_id=731199017]
 unique_name_in_owner = true
@@ -241,9 +237,40 @@ grow_horizontal = 2
 theme_override_font_sizes/font_size = 40
 text = "Victory"
 
+[node name="Tutorial" type="Control" parent="MainUI/Menus" unique_id=429300153]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MainUI/Menus/Tutorial" unique_id=927645867]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -214.0
+offset_top = -172.0
+offset_right = 203.0
+offset_bottom = 190.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "The objective is to go into the manor and fix all the needed repairs. You can press e to interact with the various itme and fix them, and the totla amount that you are required to fix is displayed on the bottom right. You must hurry, as guest arrive at 5 AM, if you fail repairs before this time you lose."
+horizontal_alignment = 1
+
+[node name="Back" type="Button" parent="MainUI/Menus/Tutorial" unique_id=1750729587]
+custom_minimum_size = Vector2(200, 80)
+layout_mode = 0
+text = "Back
+"
+
 [node name="TimeTick" type="Timer" parent="." unique_id=711975636]
 unique_name_in_owner = true
-wait_time = 0.5
 
 [node name="MainMusic" type="AudioStreamPlayer" parent="." unique_id=1804781753]
 unique_name_in_owner = true
@@ -270,9 +297,11 @@ volume_db = -10.0
 bus = &"Music"
 
 [connection signal="pressed" from="MainUI/Menus/MainMenu/VBoxContainer/Levels" to="." method="_on_levels_pressed"]
+[connection signal="pressed" from="MainUI/Menus/MainMenu/VBoxContainer/Tutoirial" to="." method="_on_tutoirial_pressed"]
 [connection signal="pressed" from="MainUI/Menus/Levels/VBoxContainer/LevelOne" to="." method="_on_level_one_pressed"]
 [connection signal="pressed" from="MainUI/Menus/Levels/VBoxContainer/LevelTwo" to="." method="_on_level_two_pressed"]
 [connection signal="pressed" from="MainUI/Menus/Levels/VBoxContainer/LevelThree" to="." method="_on_level_three_pressed"]
 [connection signal="pressed" from="MainUI/Menus/EndScreen/VBoxContainer/Retry" to="." method="_on_retry_pressed"]
 [connection signal="pressed" from="MainUI/Menus/EndScreen/VBoxContainer/Main Menu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="MainUI/Menus/Tutorial/Back" to="." method="_on_back_pressed"]
 [connection signal="timeout" from="TimeTick" to="." method="_on_time_tick_timeout"]

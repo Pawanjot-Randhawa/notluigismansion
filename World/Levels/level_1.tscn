@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://cmkrsvrp8y6df" path="res://Enemies/wizard.tscn" id="14_80xpb"]
 [ext_resource type="PackedScene" uid="uid://1qowhc74nhaf" path="res://Enemies/yeti.tscn" id="15_8hpvr"]
 [ext_resource type="PackedScene" uid="uid://c0f4hd1gj27v4" path="res://Enemies/green_blob.tscn" id="16_6tjya"]
+[ext_resource type="Texture2D" uid="uid://o2i81rluocsl" path="res://assets/Foliage.png" id="18_avaku"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_veaet"]
 size = Vector3(5.7795105, 1.2489072, 4.050598)
@@ -76,6 +77,21 @@ size = Vector3(3.9055634, -0.005, 8.073594)
 
 [sub_resource type="BoxMesh" id="BoxMesh_lswn8"]
 size = Vector3(7.8741684, -0.005, 3.701836)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rwg62"]
+albedo_texture = ExtResource("18_avaku")
+uv1_scale = Vector3(0.26, 0.26, 0.26)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_onqs7"]
+transparency = 1
+albedo_color = Color(0.36078432, 0.5803922, 0.36862746, 0.6313726)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_avaku"]
+material = SubResource("StandardMaterial3D_onqs7")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rwg62"]
+size = Vector3(2.00148, 1.5349121, 2.0016174)
 
 [node name="level1" type="Node3D" unique_id=2140788766]
 script = ExtResource("1_klmnm")
@@ -530,3 +546,27 @@ markers = [NodePath("../SlimeRoamPoints/Marker3D5"), NodePath("../SlimeRoamPoint
 [node name="GreenBlob2" parent="Enemies" unique_id=1724401435 node_paths=PackedStringArray("markers") instance=ExtResource("16_6tjya")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.616762, 0.5029541, -2.9465437)
 markers = [NodePath("../SlimeRoamPoints/Marker3D4"), NodePath("../SlimeRoamPoints/Marker3D3")]
+
+[node name="Ground" type="CSGBox3D" parent="." unique_id=503975444]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.068971634, -38.136475)
+material_override = SubResource("StandardMaterial3D_rwg62")
+use_collision = true
+collision_layer = 2
+collision_mask = 7
+size = Vector3(50, 1, 126.27295)
+
+[node name="Start" type="MeshInstance3D" parent="." unique_id=1992987125]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.943804, 0.72026515, -0.40093338)
+mesh = SubResource("PlaneMesh_avaku")
+
+[node name="Spawn" type="Marker3D" parent="." unique_id=1207901058]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.966633, 0.73731303, -0.44878802)
+
+[node name="spawn_area" type="Area3D" parent="." unique_id=616709703]
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="spawn_area" unique_id=2078929152]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.9424148, 0.70666504, -0.401474)
+shape = SubResource("BoxShape3D_rwg62")
+
+[connection signal="body_exited" from="spawn_area" to="." method="_on_spawn_area_body_exited"]

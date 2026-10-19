@@ -1,7 +1,7 @@
 extends Node3D
 
-var total_repairs:int = 10
-var current_repairs:int = 0
+@export var repairs:int = 8
 
-func _ready() -> void:
-	Game.repair_compelted.connect(func(): current_repairs += 1)
+func _on_spawn_area_body_exited(body: Node3D) -> void:
+	if body is Player:
+		Game.start_clock.emit()

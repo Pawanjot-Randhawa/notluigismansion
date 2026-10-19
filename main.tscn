@@ -2,10 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bkywd0s1e5hm5" path="res://Player/player.tscn" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://nbjr6s87grx" path="res://main.gd" id="1_vivmo"]
-[ext_resource type="PackedScene" uid="uid://cm28kwgklc6k4" path="res://World/Levels/level_1.tscn" id="3_h2yge"]
 [ext_resource type="Texture2D" uid="uid://o2i81rluocsl" path="res://assets/Foliage.png" id="4_1bvp3"]
-[ext_resource type="PackedScene" uid="uid://cjm0bau1pduly" path="res://World/Levels/level__1.tscn" id="4_7mycd"]
-[ext_resource type="PackedScene" uid="uid://vgqraqm4xpnj" path="res://World/Levels/level__2.tscn" id="5_272bh"]
 [ext_resource type="AudioStream" uid="uid://6eme2ie80r3s" path="res://assets/chill-one.mp3" id="5_lquwl"]
 
 [sub_resource type="Environment" id="Environment_grnse"]
@@ -36,14 +33,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.50390625, 0)
 gizmo_extents = 4.0
 
 [node name="LevelContainer" type="Node3D" parent="." unique_id=492138988]
-
-[node name="level1" parent="LevelContainer" unique_id=2140788766 instance=ExtResource("3_h2yge")]
-
-[node name="level_-1" parent="LevelContainer" unique_id=1267759495 instance=ExtResource("4_7mycd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.70554924, 0, 17)
-
-[node name="Level__2" parent="LevelContainer" unique_id=1944334208 instance=ExtResource("5_272bh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -29)
+unique_name_in_owner = true
 
 [node name="Ground" type="CSGBox3D" parent="." unique_id=960375827]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.068971634, -38.136475)
@@ -55,7 +45,9 @@ size = Vector3(50, 1, 126.27295)
 
 [node name="MainUI" type="CanvasLayer" parent="." unique_id=2044305847]
 
-[node name="Control" type="Control" parent="MainUI" unique_id=1072789736]
+[node name="Stats" type="Control" parent="MainUI" unique_id=1072789736]
+unique_name_in_owner = true
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -63,7 +55,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Time" type="Label" parent="MainUI/Control" unique_id=161485656]
+[node name="Time" type="Label" parent="MainUI/Stats" unique_id=161485656]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 1
@@ -77,7 +69,7 @@ grow_horizontal = 0
 theme_override_font_sizes/font_size = 40
 text = "11:59 PM"
 
-[node name="RepairCount" type="Label" parent="MainUI/Control" unique_id=2109126420]
+[node name="RepairCount" type="Label" parent="MainUI/Stats" unique_id=2109126420]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 3
@@ -94,9 +86,157 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 40
 text = "0/0"
 
+[node name="Menus" type="Control" parent="MainUI" unique_id=2101196693]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="ColorRect" parent="MainUI/Menus" unique_id=565626279]
+layout_mode = 0
+offset_right = 1278.0
+offset_bottom = 721.0
+color = Color(0.49747366, 0.49747366, 0.49747366, 1)
+
+[node name="MainMenu" type="Control" parent="MainUI/Menus" unique_id=984922522]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainUI/Menus/MainMenu" unique_id=1092733036]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = -50.5
+offset_right = 35.0
+offset_bottom = 50.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+
+[node name="Levels" type="Button" parent="MainUI/Menus/MainMenu/VBoxContainer" unique_id=2080206995]
+custom_minimum_size = Vector2(200, 80)
+layout_mode = 2
+text = "Levels"
+
+[node name="Practice" type="Button" parent="MainUI/Menus/MainMenu/VBoxContainer" unique_id=1107859050]
+custom_minimum_size = Vector2(200, 80)
+layout_mode = 2
+text = "Practice"
+
+[node name="Credits" type="Button" parent="MainUI/Menus/MainMenu/VBoxContainer" unique_id=2050352225]
+custom_minimum_size = Vector2(200, 80)
+layout_mode = 2
+text = "Credits"
+
+[node name="Levels" type="Control" parent="MainUI/Menus" unique_id=731199017]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainUI/Menus/Levels" unique_id=327864433]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = -50.5
+offset_right = 35.0
+offset_bottom = 50.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+
+[node name="LevelOne" type="Button" parent="MainUI/Menus/Levels/VBoxContainer" unique_id=2115308897]
+custom_minimum_size = Vector2(200, 80)
+layout_mode = 2
+text = "One"
+
+[node name="LevelTwo" type="Button" parent="MainUI/Menus/Levels/VBoxContainer" unique_id=424880019]
+custom_minimum_size = Vector2(200, 80)
+layout_mode = 2
+text = "Two"
+
+[node name="LevelThree" type="Button" parent="MainUI/Menus/Levels/VBoxContainer" unique_id=2087803705]
+custom_minimum_size = Vector2(200, 80)
+layout_mode = 2
+text = "Three"
+
+[node name="EndScreen" type="Control" parent="MainUI/Menus" unique_id=601286909]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainUI/Menus/EndScreen" unique_id=1761965633]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = -50.5
+offset_right = 35.0
+offset_bottom = 50.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+
+[node name="Levels" type="Label" parent="MainUI/Menus/EndScreen/VBoxContainer" unique_id=1024841865]
+custom_minimum_size = Vector2(200, 80)
+layout_mode = 2
+text = "Ending Time: 0"
+horizontal_alignment = 1
+
+[node name="Practice" type="Button" parent="MainUI/Menus/EndScreen/VBoxContainer" unique_id=1423905759]
+custom_minimum_size = Vector2(200, 80)
+layout_mode = 2
+text = "Retry"
+
+[node name="Main Menu" type="Button" parent="MainUI/Menus/EndScreen/VBoxContainer" unique_id=2103921695]
+custom_minimum_size = Vector2(200, 80)
+layout_mode = 2
+text = "Main Menu"
+
+[node name="StatusLabel" type="Label" parent="MainUI/Menus/EndScreen" unique_id=843664137]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -67.0
+offset_top = 36.0
+offset_right = 68.0
+offset_bottom = 91.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 40
+text = "Victory"
+
 [node name="TimeTick" type="Timer" parent="." unique_id=711975636]
+unique_name_in_owner = true
 wait_time = 0.5
-autostart = true
 
 [node name="MainMusic" type="AudioStreamPlayer" parent="." unique_id=1804781753]
 stream = ExtResource("5_lquwl")
@@ -104,4 +244,9 @@ volume_db = -10.0
 autoplay = true
 bus = &"Music"
 
+[connection signal="pressed" from="MainUI/Menus/MainMenu/VBoxContainer/Levels" to="." method="_on_levels_pressed"]
+[connection signal="pressed" from="MainUI/Menus/Levels/VBoxContainer/LevelOne" to="." method="_on_level_one_pressed"]
+[connection signal="pressed" from="MainUI/Menus/Levels/VBoxContainer/LevelTwo" to="." method="_on_level_two_pressed"]
+[connection signal="pressed" from="MainUI/Menus/Levels/VBoxContainer/LevelThree" to="." method="_on_level_three_pressed"]
+[connection signal="pressed" from="MainUI/Menus/EndScreen/VBoxContainer/Main Menu" to="." method="_on_main_menu_pressed"]
 [connection signal="timeout" from="TimeTick" to="." method="_on_time_tick_timeout"]

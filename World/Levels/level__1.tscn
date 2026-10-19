@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cjm0bau1pduly"]
 
 [ext_resource type="PackedScene" uid="uid://c66ipeh0nvq7e" path="res://World/BuildingBlocks/doorway_wall.tscn" id="1_drcd0"]
+[ext_resource type="Script" uid="uid://dbijf2tt7paa5" path="res://World/Levels/level__1.gd" id="1_tvh4v"]
 [ext_resource type="PackedScene" uid="uid://dl4chch71jslm" path="res://World/BuildingBlocks/wall.tscn" id="3_jpw8q"]
 [ext_resource type="PackedScene" uid="uid://d18loxxaj15wj" path="res://World/BuildingBlocks/window_wall.tscn" id="4_tvh4v"]
 [ext_resource type="Texture2D" uid="uid://dvlqxp5a3nemc" path="res://assets/Pack/textures/parquet_oak.png" id="5_te8qg"]
@@ -16,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://cmkrsvrp8y6df" path="res://Enemies/wizard.tscn" id="14_su5nm"]
 [ext_resource type="PackedScene" uid="uid://1qowhc74nhaf" path="res://Enemies/yeti.tscn" id="15_q3h2w"]
 [ext_resource type="PackedScene" uid="uid://c0f4hd1gj27v4" path="res://Enemies/green_blob.tscn" id="16_bl2f0"]
+[ext_resource type="Texture2D" uid="uid://o2i81rluocsl" path="res://assets/Foliage.png" id="18_te8qg"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_pskal"]
 vertices = PackedVector3Array(-5.2005863, 0.70000005, -0.8058586, -5.4505863, 0.70000005, -2.8058586, -6.7005863, 0.70000005, -2.8058586, -6.7005863, 0.70000005, 4.6941414, -5.4505863, 0.70000005, 4.6941414, -5.2005863, 0.70000005, 0.4441414, -1.4505863, 0.70000005, 0.6941414, 0.7994137, 0.70000005, 0.4441414, 0.7994137, 0.70000005, -0.8058586, -3.4505863, 0.70000005, -1.0558586, -2.7005863, 0.70000005, 0.6941414, -4.4505863, 0.70000005, -1.0558586, -1.2005863, 0.70000005, 1.4441414, -2.9505863, 0.70000005, 1.4441414, -4.4505863, 0.70000005, 1.4441414, -4.4505863, 0.70000005, 4.6941414, 0.5494137, 0.70000005, 4.6941414, 0.5494137, 0.70000005, 1.4441414, -3.2005863, 0.70000005, -1.5558586, 0.5494137, 0.70000005, -1.5558586, 0.5494137, 0.70000005, -2.8058586, -4.4505863, 0.70000005, -2.8058586)
@@ -49,7 +51,23 @@ size = Vector3(2.1481934, -0.005, 8.322754)
 [sub_resource type="BoxMesh" id="BoxMesh_te8qg"]
 size = Vector3(3.6810608, -0.005, 1.9525146)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bxn2l"]
+albedo_texture = ExtResource("18_te8qg")
+uv1_scale = Vector3(0.26, 0.26, 0.26)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_onqs7"]
+transparency = 1
+albedo_color = Color(0.36078432, 0.5803922, 0.36862746, 0.6313726)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_d0iu3"]
+material = SubResource("StandardMaterial3D_onqs7")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d0iu3"]
+size = Vector3(2.00148, 1.5349121, 2.0016174)
+
 [node name="level_-1" type="Node3D" unique_id=1267759495]
+script = ExtResource("1_tvh4v")
 
 [node name="Doors" type="Node3D" parent="." unique_id=1475149308]
 
@@ -67,6 +85,8 @@ transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -2.9
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=1742835948]
 navigation_mesh = SubResource("NavigationMesh_pskal")
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
 [node name="Walls" type="Node3D" parent="NavigationRegion3D" unique_id=174892255]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5036621, 0)
@@ -264,3 +284,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.530617, 0.5048828, -2.5031
 [node name="GreenBlob" parent="Enemies" unique_id=487428178 node_paths=PackedStringArray("markers") instance=ExtResource("16_bl2f0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.46383238, 0.50295424, 4.1228933)
 markers = [NodePath("../SlimeRoamPoints/Marker3D"), NodePath("../SlimeRoamPoints/Marker3D2"), NodePath("../SlimeRoamPoints/Marker3D3")]
+
+[node name="Ground" type="CSGBox3D" parent="." unique_id=22194763]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.068971634, -38.136475)
+material_override = SubResource("StandardMaterial3D_bxn2l")
+use_collision = true
+collision_layer = 2
+collision_mask = 7
+size = Vector3(50, 1, 126.27295)
+
+[node name="Start" type="MeshInstance3D" parent="." unique_id=1964737617]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.943804, 0.72026515, -0.40093338)
+mesh = SubResource("PlaneMesh_d0iu3")
+
+[node name="Spawn" type="Marker3D" parent="." unique_id=1814481508]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.966633, 0.73731303, -0.44878802)
+
+[node name="spawn_area" type="Area3D" parent="." unique_id=461772023]
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="spawn_area" unique_id=1490983246]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.9424148, 0.70666504, -0.401474)
+shape = SubResource("BoxShape3D_d0iu3")
+
+[connection signal="body_exited" from="spawn_area" to="." method="_on_spawn_area_body_exited"]

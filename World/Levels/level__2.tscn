@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://vgqraqm4xpnj"]
 
+[ext_resource type="Script" uid="uid://c2000tjfqxmok" path="res://World/Levels/level__2.gd" id="1_6u77d"]
 [ext_resource type="PackedScene" uid="uid://c66ipeh0nvq7e" path="res://World/BuildingBlocks/doorway_wall.tscn" id="1_lhtbv"]
 [ext_resource type="PackedScene" uid="uid://dl4chch71jslm" path="res://World/BuildingBlocks/wall.tscn" id="3_mnsle"]
 [ext_resource type="PackedScene" uid="uid://d18loxxaj15wj" path="res://World/BuildingBlocks/window_wall.tscn" id="4_r6d1p"]
@@ -13,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://1qowhc74nhaf" path="res://Enemies/yeti.tscn" id="11_qoq86"]
 [ext_resource type="PackedScene" uid="uid://cmkrsvrp8y6df" path="res://Enemies/wizard.tscn" id="12_utxgb"]
 [ext_resource type="PackedScene" uid="uid://c0f4hd1gj27v4" path="res://Enemies/green_blob.tscn" id="13_pblp5"]
+[ext_resource type="Texture2D" uid="uid://o2i81rluocsl" path="res://assets/Foliage.png" id="14_vbrxl"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_utxgb"]
 vertices = PackedVector3Array(-11.629885, 0.70000005, -4.5798826, -11.879885, 0.70000005, -3.5798826, -10.379885, 0.70000005, -3.5798826, -9.879885, 0.70000005, -3.8298826, -10.379885, 0.70000005, -4.8298826, -4.1298847, 0.70000005, -3.5798826, -4.1298847, 0.70000005, -1.8298826, -1.8798847, 0.70000005, -1.8298826, -1.8798847, 0.70000005, -4.3298826, -9.879885, 0.70000005, -7.5798826, -10.379885, 0.70000005, -8.329883, -5.3798847, 0.70000005, -4.3298826, -5.3798847, 0.70000005, -3.8298826, -8.629885, 0.70000005, -7.8298826, -8.379885, 0.70000005, -1.8298826, -7.8798847, 0.70000005, -6.5798826, -5.6298847, 0.70000005, -1.8298826, -5.6298847, 0.70000005, -6.3298826, -7.6298847, 0.70000005, -7.8298826, -4.3798847, 0.70000005, -7.8298826, -4.3798847, 0.70000005, -8.329883, -14.879885, 0.70000005, -1.8298826, -11.879885, 0.70000005, -1.8298826, -11.879885, 0.70000005, -8.329883, -14.879885, 0.70000005, -8.329883, 0.6201153, 0.70000005, 0.17011738, 0.6201153, 0.70000005, -0.5798826, 0.12011528, 0.70000005, -0.8298826, -0.37988472, 0.70000005, -0.5798826, -1.6298847, 0.70000005, 0.42011738, 0.12011528, 0.70000005, -8.329883, -0.37988472, 0.70000005, -8.329883, -0.6298847, 0.70000005, -6.5798826, -0.37988472, 0.70000005, -5.5798826, -2.3798847, 0.70000005, -0.32988262, -2.6298847, 0.70000005, 0.17011738, -2.6298847, 0.70000005, 1.6701174, -3.6298847, 0.70000005, 4.6701174, -1.3798847, 0.70000005, 1.6701174, -4.1298847, 0.70000005, -5.8298826, -1.6298847, 0.70000005, -6.5798826, -1.8798847, 0.70000005, -8.329883, 0.12011528, 0.70000005, 4.4201174, 0.12011528, 0.70000005, 1.6701174, -4.1298847, 0.70000005, 1.6701174, -4.3798847, 0.70000005, 9.670117, -3.3798847, 0.70000005, 5.9201174, -4.3798847, 0.70000005, 10.170117, 0.12011528, 0.70000005, 10.170117, 0.12011528, 0.70000005, 5.9201174, -5.6298847, 0.70000005, 9.420117, -6.3798847, 0.70000005, 10.170117, -5.6298847, 0.70000005, 0.42011738, -6.6298847, 0.70000005, 0.17011738, -6.3798847, 0.70000005, 3.4201174, -13.629885, 0.70000005, 0.17011738, -11.879885, 0.70000005, 0.17011738, -11.879885, 0.70000005, -0.32988262, -14.629885, 0.70000005, -0.32988262, -6.3798847, 0.70000005, 5.6701174, -14.629885, 0.70000005, 5.9201174, -11.879885, 0.70000005, 6.4201174, -6.6298847, 0.70000005, 6.4201174, -13.879885, 0.70000005, 1.4201174, -14.629885, 0.70000005, 4.4201174, -14.629885, 0.70000005, 6.4201174, -12.879885, 0.70000005, 6.6701174, -13.129885, 0.70000005, 7.9201174, -14.629885, 0.70000005, 7.9201174, -14.629885, 0.70000005, 10.170117, -9.879885, 0.70000005, -0.8298826, -10.379885, 0.70000005, 0.17011738, -11.879885, 0.70000005, 7.9201174, -9.379885, 0.70000005, -0.32988262, -7.8798847, 0.70000005, 3.4201174, -7.8798847, 0.70000005, 1.6701174, -10.379885, 0.70000005, 1.6701174, -10.379885, 0.70000005, 3.4201174, -11.629885, 0.70000005, 3.6701174, -11.879885, 0.70000005, 1.6701174, -6.6298847, 0.70000005, 4.4201174, -7.8798847, 0.70000005, 10.170117, -7.8798847, 0.70000005, 7.9201174)
@@ -24,7 +26,23 @@ agent_radius = 0.3
 albedo_texture = ExtResource("5_5bblj")
 uv1_triplanar = true
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6u77d"]
+albedo_texture = ExtResource("14_vbrxl")
+uv1_scale = Vector3(0.26, 0.26, 0.26)
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_onqs7"]
+transparency = 1
+albedo_color = Color(0.36078432, 0.5803922, 0.36862746, 0.6313726)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_vbrxl"]
+material = SubResource("StandardMaterial3D_onqs7")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6u77d"]
+size = Vector3(2.00148, 1.5349121, 2.0016174)
+
 [node name="Level__2" type="Node3D" unique_id=1944334208]
+script = ExtResource("1_6u77d")
 
 [node name="Doors" type="Node3D" parent="." unique_id=1703305240]
 
@@ -503,3 +521,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.022149, 0, 4)
 
 [node name="Marker3D9" type="Marker3D" parent="Enemies/SlimePoints" unique_id=1965659444]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.022149, 0, 1)
+
+[node name="Ground" type="CSGBox3D" parent="." unique_id=1216824248]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.068971634, -38.136475)
+material_override = SubResource("StandardMaterial3D_6u77d")
+use_collision = true
+collision_layer = 2
+collision_mask = 7
+size = Vector3(50, 1, 126.27295)
+
+[node name="Start" type="MeshInstance3D" parent="." unique_id=1031795831]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.943804, 0.72026515, -0.40093338)
+mesh = SubResource("PlaneMesh_vbrxl")
+
+[node name="Spawn" type="Marker3D" parent="." unique_id=1291553380]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.966633, 0.73731303, -0.44878802)
+
+[node name="spawn_area" type="Area3D" parent="." unique_id=1107591366]
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="spawn_area" unique_id=197860196]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.9424148, 0.70666504, -0.401474)
+shape = SubResource("BoxShape3D_6u77d")
+
+[connection signal="body_exited" from="spawn_area" to="." method="_on_spawn_area_body_exited"]

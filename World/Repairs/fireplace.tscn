@@ -127,6 +127,7 @@ fov = 45.0
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=546217073]
 
 [node name="UI" type="Control" parent="CanvasLayer" unique_id=622387191]
+visible = false
 layout_mode = 3
 anchors_preset = 5
 anchor_left = 0.5

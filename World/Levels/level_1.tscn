@@ -563,6 +563,7 @@ mesh = SubResource("PlaneMesh_avaku")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.966633, 0.73731303, -0.44878802)
 
 [node name="spawn_area" type="Area3D" parent="." unique_id=616709703]
+unique_name_in_owner = true
 collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="spawn_area" unique_id=2078929152]

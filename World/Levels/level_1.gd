@@ -5,3 +5,4 @@ extends Node3D
 func _on_spawn_area_body_exited(body: Node3D) -> void:
 	if body is Player:
 		Game.start_clock.emit()
+		%spawn_area.set_deferred("monitoring", false)

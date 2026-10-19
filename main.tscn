@@ -3,7 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://bkywd0s1e5hm5" path="res://Player/player.tscn" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://nbjr6s87grx" path="res://main.gd" id="1_vivmo"]
 [ext_resource type="Texture2D" uid="uid://o2i81rluocsl" path="res://assets/Foliage.png" id="4_1bvp3"]
+[ext_resource type="AudioStream" uid="uid://dgm8a4k3uv2nt" path="res://assets/Sound/WinVibraphone.wav" id="5_7mycd"]
 [ext_resource type="AudioStream" uid="uid://6eme2ie80r3s" path="res://assets/chill-one.mp3" id="5_lquwl"]
+[ext_resource type="AudioStream" uid="uid://da21tn44bnfmy" path="res://assets/Sound/losetrumpet.mp3" id="6_272bh"]
+[ext_resource type="AudioStream" uid="uid://dk21ax1heb2fp" path="res://assets/level-music.mp3" id="7_272bh"]
 
 [sub_resource type="Environment" id="Environment_grnse"]
 background_mode = 1
@@ -205,13 +208,16 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 50
 
-[node name="Levels" type="Label" parent="MainUI/Menus/EndScreen/VBoxContainer" unique_id=1024841865]
-custom_minimum_size = Vector2(200, 80)
+[node name="EndStat" type="Label" parent="MainUI/Menus/EndScreen/VBoxContainer" unique_id=1024841865]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 80)
 layout_mode = 2
+theme_override_font_sizes/font_size = 24
 text = "Ending Time: 0"
 horizontal_alignment = 1
 
-[node name="Practice" type="Button" parent="MainUI/Menus/EndScreen/VBoxContainer" unique_id=1423905759]
+[node name="Retry" type="Button" parent="MainUI/Menus/EndScreen/VBoxContainer" unique_id=1423905759]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 80)
 layout_mode = 2
 text = "Retry"
@@ -222,6 +228,7 @@ layout_mode = 2
 text = "Main Menu"
 
 [node name="StatusLabel" type="Label" parent="MainUI/Menus/EndScreen" unique_id=843664137]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -239,14 +246,33 @@ unique_name_in_owner = true
 wait_time = 0.5
 
 [node name="MainMusic" type="AudioStreamPlayer" parent="." unique_id=1804781753]
+unique_name_in_owner = true
 stream = ExtResource("5_lquwl")
 volume_db = -10.0
-autoplay = true
+bus = &"Music"
+
+[node name="WinSound" type="AudioStreamPlayer" parent="." unique_id=183474843]
+unique_name_in_owner = true
+stream = ExtResource("5_7mycd")
+volume_db = -2.0
+bus = &"Sounds"
+
+[node name="LoseSound" type="AudioStreamPlayer" parent="." unique_id=151182006]
+unique_name_in_owner = true
+stream = ExtResource("6_272bh")
+volume_db = -2.0
+bus = &"Sounds"
+
+[node name="LevelMusic" type="AudioStreamPlayer" parent="." unique_id=1498920803]
+unique_name_in_owner = true
+stream = ExtResource("7_272bh")
+volume_db = -10.0
 bus = &"Music"
 
 [connection signal="pressed" from="MainUI/Menus/MainMenu/VBoxContainer/Levels" to="." method="_on_levels_pressed"]
 [connection signal="pressed" from="MainUI/Menus/Levels/VBoxContainer/LevelOne" to="." method="_on_level_one_pressed"]
 [connection signal="pressed" from="MainUI/Menus/Levels/VBoxContainer/LevelTwo" to="." method="_on_level_two_pressed"]
 [connection signal="pressed" from="MainUI/Menus/Levels/VBoxContainer/LevelThree" to="." method="_on_level_three_pressed"]
+[connection signal="pressed" from="MainUI/Menus/EndScreen/VBoxContainer/Retry" to="." method="_on_retry_pressed"]
 [connection signal="pressed" from="MainUI/Menus/EndScreen/VBoxContainer/Main Menu" to="." method="_on_main_menu_pressed"]
 [connection signal="timeout" from="TimeTick" to="." method="_on_time_tick_timeout"]
